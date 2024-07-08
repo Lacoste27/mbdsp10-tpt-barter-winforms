@@ -1,0 +1,66 @@
+name: Build and Release
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '8.0' # Spécifiez la version de .NET que vous utilisez
+
+    - name: Restore dependencies
+      run: dotnet restore
+
+    - name: Build WinForms Project
+      run: dotnet build barter/barter -c Release --no-restore
+
+    - name: Build Setup Wizard Project
+      run: dotnet build barter-setup/barter-setup -c Release --no-restore
+
+    - name: Publish Setup Wizard
+      run: dotnet publish barter-setup/barter-setup -c Release -o output
+
+    - name: Upload setup.exe
+      uses: actions/upload-artifact@v3
+      with:
+        name: setup.exe
+        path: barter-setup/Relase/setup.exe
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Download setup.exe
+      uses: actions/download-artifact@v3
+      with:
+        name: setup.exe
+        path: .
+
+    - name: Create GitHub Release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.sha }}
+        release_name: Release ${{ github.sha }}
+        body: |
+          Release for commit ${{ github.sha }}
+        draft: false
+        prerelease: false
+        files: setup.exe
