@@ -20,12 +20,11 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: '8.0' # Spécifiez la version de .NET que vous utilisez
-        
     - name: Build WinForms Project
-      run: dotnet build barter/barter.csproj -c Release --no-restore
+      run: dotnet build barter/barter.csproj -c Release
 
     - name: Build Setup Wizard Project
-      run: dotnet build barter-setup/barter-setup.vdproj -c Release --no-restore
+      run: dotnet build barter-setup/barter-setup.vdproj -c Release
 
     - name: Publish Setup Wizard
       run: dotnet publish barter-setup/barter-setup.vdproj -c Release -o output
