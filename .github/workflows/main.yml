@@ -25,13 +25,13 @@ jobs:
       run: dotnet restore
 
     - name: Build WinForms Project
-      run: dotnet build barter/barter -c Release --no-restore
+      run: dotnet build barter/barter.csproj -c Release --no-restore
 
     - name: Build Setup Wizard Project
-      run: dotnet build barter-setup/barter-setup -c Release --no-restore
+      run: dotnet build barter-setup/barter-setup.vdproj -c Release --no-restore
 
     - name: Publish Setup Wizard
-      run: dotnet publish barter-setup/barter-setup -c Release -o output
+      run: dotnet publish barter-setup/barter-setup.vdproj -c Release -o output
 
     - name: Upload setup.exe
       uses: actions/upload-artifact@v3
