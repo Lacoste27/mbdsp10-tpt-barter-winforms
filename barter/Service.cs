@@ -13,6 +13,7 @@ using barter.Services.Objects;
 using barter.Services.Posts;
 using barter.Services.Reports;
 using barter.Services.Users;
+using barter.Services.Api;
 
 namespace barter
 {
@@ -31,6 +32,9 @@ namespace barter
 			services.AddScoped<IPostService, PostService>();
 			services.AddScoped<IReportService, ReportService>();
 			services.AddScoped<IUsersService, UsersService>();
+			services.AddScoped<IApiService, ApiService>();
+
+			serviceProvider = services.BuildServiceProvider();
 		}
 
 		public static T? GetService<T>() where T : class

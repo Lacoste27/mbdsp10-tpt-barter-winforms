@@ -15,7 +15,19 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_3626CE7DCFDE4EC5ABC50341CD627A00"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_7630815B09E54E48A4C0BF4A1A12CCF6"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_E3B8AD6FE4F1493A9F86B87000CE9326"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -43,11 +55,11 @@
         "DisplayName" = "8:Release"
         "IsDebugOnly" = "11:FALSE"
         "IsReleaseOnly" = "11:TRUE"
-        "OutputFilename" = "8:Release\\barter-setup.msi"
+        "OutputFilename" = "8:Release\\Barter.msi"
         "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
-        "Compression" = "3:2"
+        "Compression" = "3:3"
         "SignOutput" = "11:FALSE"
         "CertificateFile" = "8:"
         "PrivateKeyFile" = "8:"
@@ -70,10 +82,60 @@
         {
             "LaunchCondition"
             {
+                "{A06ECF26-33A3-4562-8140-9B0E340D4F24}:_3B4657FCD448492797E7C93BFDBAF6EE"
+                {
+                "Name" = "8:.NET Core"
+                "Message" = "8:[VSDNETCOREMSG]"
+                "AllowLaterVersions" = "11:FALSE"
+                "InstallUrl" = "8:https://dotnet.microsoft.com/download/dotnet-core/[NetCoreVerMajorDotMinor]"
+                "IsNETCore" = "11:TRUE"
+                "Architecture" = "2:0"
+                "Runtime" = "2:0"
+                }
             }
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3626CE7DCFDE4EC5ABC50341CD627A00"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\..\\..\\Images\\barter.jpg"
+            "TargetName" = "8:barter.jpg"
+            "Tag" = "8:"
+            "Folder" = "8:_BBC788AF8FE84D4883AF9A3D95FA7886"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:TRUE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E3B8AD6FE4F1493A9F86B87000CE9326"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\..\\..\\Downloads\\troc.ico"
+            "TargetName" = "8:troc.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_BBC788AF8FE84D4883AF9A3D95FA7886"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
         }
         "FileType"
         {
@@ -106,7 +168,7 @@
             {
             "DefaultLocation" = "8:[ProgramFilesFolder][Manufacturer]\\[ProductName]"
             "Name" = "8:#1925"
-            "AlwaysCreate" = "11:FALSE"
+            "AlwaysCreate" = "11:TRUE"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Property" = "8:TARGETDIR"
@@ -131,7 +193,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:barter-setup"
         "ProductCode" = "8:{875FA0D8-11B1-4049-A73E-FD6606CBC058}"
-        "PackageCode" = "8:{C75BB1FD-5A65-4CD0-85C1-9D942B77223B}"
+        "PackageCode" = "8:{E38F13B0-386A-4C3C-A511-85219DAEEF1A}"
         "UpgradeCode" = "8:{4D7126D3-689D-4CAF-88E6-3C8076E2C0D0}"
         "AspNetVersion" = "8:"
         "RestartWWWService" = "11:FALSE"
@@ -251,6 +313,20 @@
         }
         "Shortcut"
         {
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_A26EB43F6D434079BD90FB881394A372"
+            {
+            "Name" = "8:Barter"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_7630815B09E54E48A4C0BF4A1A12CCF6"
+            "Folder" = "8:_2176BCB064654F05B198A3DB149E730D"
+            "WorkingFolder" = "8:_BBC788AF8FE84D4883AF9A3D95FA7886"
+            "Icon" = "8:_E3B8AD6FE4F1493A9F86B87000CE9326"
+            "Feature" = "8:"
+            }
         }
         "UserInterface"
         {
@@ -652,7 +728,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_7630815B09E54E48A4C0BF4A1A12CCF6"
             {
-            "SourcePath" = "8:..\\barter\\obj\\Debug\\net8.0-windows\\apphost.exe"
+            "SourcePath" = "8:..\\barter\\obj\\Release\\net8.0-windows\\apphost.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_BBC788AF8FE84D4883AF9A3D95FA7886"
