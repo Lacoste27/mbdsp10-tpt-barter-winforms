@@ -14,6 +14,7 @@ using barter.Services.Posts;
 using barter.Services.Reports;
 using barter.Services.Users;
 using barter.Services.Api;
+using barter.Services.Auth;
 
 namespace barter
 {
@@ -32,6 +33,7 @@ namespace barter
 			services.AddScoped<IPostService, PostService>();
 			services.AddScoped<IReportService, ReportService>();
 			services.AddScoped<IUsersService, UsersService>();
+			services.AddScoped<IAuthService, AuthService>();
 			services.AddScoped<IApiService, ApiService>();
 
 			serviceProvider = services.BuildServiceProvider();

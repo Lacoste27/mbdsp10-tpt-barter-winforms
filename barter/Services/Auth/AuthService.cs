@@ -5,14 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace barter.Services.Messages
+namespace barter.Services.Auth
 {
-	public class MessageService : IMessageService
+	public class AuthService  : IAuthService
 	{
 		private IApiService ApiService { get; set; }
-		private string endpoint = "api/chats";
+		private string endpoint = "api/auth";
 
-		public MessageService()
+
+		public AuthService()
 		{
 			ApiService = Service.GetService<IApiService>();
 		}

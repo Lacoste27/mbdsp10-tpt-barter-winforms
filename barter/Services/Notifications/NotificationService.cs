@@ -28,7 +28,7 @@ namespace barter.Services.Notifications
 			ApiService = Service.GetService<IApiService>();
 		}
 
-		public async Task<Response<List<Notification>>> GetUserNotification()
+		public async Task<Response<List<Notification>>> GetAllNotification()
 		{
 			try
 			{

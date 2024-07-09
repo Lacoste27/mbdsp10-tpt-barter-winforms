@@ -1,3 +1,5 @@
+global using Microsoft.Extensions.Logging;
+
 namespace barter
 {
 	internal static class Program
