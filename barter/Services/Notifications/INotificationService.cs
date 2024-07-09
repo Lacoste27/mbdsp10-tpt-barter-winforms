@@ -1,4 +1,6 @@
 ﻿using barter.Models;
+using barter.Requests;
+using barter.Responses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +11,9 @@ namespace barter.Services.Notifications
 {
 	public interface INotificationService
 	{
-		public Task<List<Notification>> GetUserNotification();
-		public Task<List<Notification>> GetUserNotification(int UserId);
+		public Task<Response<List<Notification>>> GetUserNotification();
+		public Task<Response<List<Notification>>> GetUserNotification(int UserId);
+		public Task<Response<Notification>> AddNotification(NotificationRequest request);
+		public Task<Response<Notification>> MarkNotificationAsRead(Notification request);
 	}
 }
