@@ -6,7 +6,12 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon>Group-15.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="Group-15.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="8.0.6" />
@@ -27,8 +32,7 @@
 
   <ItemGroup>
     <Folder Include="ModelsView\" />
-    <Folder Include="Components\" />
-    <Folder Include="Windows\" />
+    <Folder Include="Views\" />
   </ItemGroup>
 
   <ItemGroup>

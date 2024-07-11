@@ -1,4 +1,5 @@
 global using Microsoft.Extensions.Logging;
+using barter.Windows;
 
 namespace barter
 {
@@ -18,7 +19,7 @@ namespace barter
 
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new App());
+			Application.Run(new Main());
 		}
 	}
 }
