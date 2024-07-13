@@ -1,4 +1,7 @@
-﻿using System;
+﻿using barter.ModelsView;
+using barter.Requests;
+using barter.Services.Auth;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,8 +15,11 @@ namespace barter.Windows
 {
 	public partial class Login : Form
 	{
+		private LoginModelView LoginModelView { get; set; }
+
 		public Login()
 		{
+			LoginModelView = new LoginModelView();
 			InitializeComponent();
 		}
 
@@ -22,12 +28,21 @@ namespace barter.Windows
 
 		}
 
-		private void loginButton_Click(object sender, EventArgs e)
+		private async void loginButton_Click(object sender, EventArgs e)
 		{
-			Main main = new Main();
-			main.Show();
+			AuthRequest request = new()
+			{
+				Email = usernameTextBox.Text,
+				Password = passwordTextBox.Text
+			};
 
-			Hide();
+			var response = await LoginModelView.Login(request.Email, request.Password);	
+
+			if(response)
+			{
+				Main main = new Main();
+				main.Show();
+			}
 		}
 	}
 }

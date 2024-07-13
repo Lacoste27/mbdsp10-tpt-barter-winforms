@@ -15,19 +15,13 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_3626CE7DCFDE4EC5ABC50341CD627A00"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_7630815B09E54E48A4C0BF4A1A12CCF6"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_E3B8AD6FE4F1493A9F86B87000CE9326"
+        "MsmKey" = "8:_940D8A6DA3644B0BAA3274F892C203A0"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -49,6 +43,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -65,6 +67,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -96,30 +106,10 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3626CE7DCFDE4EC5ABC50341CD627A00"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_940D8A6DA3644B0BAA3274F892C203A0"
             {
-            "SourcePath" = "8:..\\..\\..\\..\\..\\..\\Images\\barter.jpg"
-            "TargetName" = "8:barter.jpg"
-            "Tag" = "8:"
-            "Folder" = "8:_BBC788AF8FE84D4883AF9A3D95FA7886"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:TRUE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E3B8AD6FE4F1493A9F86B87000CE9326"
-            {
-            "SourcePath" = "8:..\\..\\..\\..\\..\\..\\Downloads\\troc.ico"
-            "TargetName" = "8:troc.ico"
+            "SourcePath" = "8:..\\..\\..\\..\\..\\Downloads\\Group-15.ico"
+            "TargetName" = "8:Group-15.ico"
             "Tag" = "8:"
             "Folder" = "8:_BBC788AF8FE84D4883AF9A3D95FA7886"
             "Condition" = "8:"
@@ -313,9 +303,9 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_A26EB43F6D434079BD90FB881394A372"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_C536F28A49DF4301AB992DBD085B8C57"
             {
-            "Name" = "8:Barter"
+            "Name" = "8:barter"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
@@ -324,7 +314,7 @@
             "Target" = "8:_7630815B09E54E48A4C0BF4A1A12CCF6"
             "Folder" = "8:_2176BCB064654F05B198A3DB149E730D"
             "WorkingFolder" = "8:_BBC788AF8FE84D4883AF9A3D95FA7886"
-            "Icon" = "8:_E3B8AD6FE4F1493A9F86B87000CE9326"
+            "Icon" = "8:_940D8A6DA3644B0BAA3274F892C203A0"
             "Feature" = "8:"
             }
         }
@@ -728,7 +718,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_7630815B09E54E48A4C0BF4A1A12CCF6"
             {
-            "SourcePath" = "8:..\\barter\\obj\\Release\\net8.0-windows\\apphost.exe"
+            "SourcePath" = "8:..\\barter\\obj\\Debug\\net8.0-windows8.0\\apphost.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_BBC788AF8FE84D4883AF9A3D95FA7886"

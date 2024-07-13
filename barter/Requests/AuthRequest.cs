@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace barter.Services.Api
+namespace barter.Requests
 {
-	public interface IApiService
+	public class AuthRequest
 	{
-		public HttpClient GetClient(bool needToken = true);
+		public string Email { get; set; }
+		public string Password { get; set; }
 	}
 }

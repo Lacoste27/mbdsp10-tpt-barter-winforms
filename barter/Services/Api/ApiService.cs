@@ -1,4 +1,6 @@
-﻿using System;
+﻿using barter.Exceptions;
+using barter.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Headers;
@@ -18,8 +20,20 @@ namespace barter.Services.Api {
 				new MediaTypeWithQualityHeaderValue("application/json"));
 		}
 
-		public HttpClient GetClient()
+		public HttpClient GetClient(bool needToken = true)
 		{
+			if(needToken)
+			{
+				string token = TokenStorage.LoadToken();
+
+				if (token == null)
+				{
+					throw new UnauhtorizedException("Token is not specified");
+				}
+
+				Client.DefaultRequestHeaders.Add("x-auth-token", token);
+			}
+			
 			return Client;
 		}
 	}

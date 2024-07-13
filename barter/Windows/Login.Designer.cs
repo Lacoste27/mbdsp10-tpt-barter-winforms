@@ -35,7 +35,7 @@
 			label1 = new Label();
 			LoginPanel = new Panel();
 			loginButton = new Button();
-			textBox1 = new TextBox();
+			passwordTextBox = new TextBox();
 			usernameTextBox = new TextBox();
 			getStartedLabel = new Label();
 			((System.ComponentModel.ISupportInitialize)Spliter).BeginInit();
@@ -103,7 +103,7 @@
 			// 
 			LoginPanel.BackColor = Color.White;
 			LoginPanel.Controls.Add(loginButton);
-			LoginPanel.Controls.Add(textBox1);
+			LoginPanel.Controls.Add(passwordTextBox);
 			LoginPanel.Controls.Add(usernameTextBox);
 			LoginPanel.Controls.Add(getStartedLabel);
 			LoginPanel.Dock = DockStyle.Fill;
@@ -126,14 +126,14 @@
 			loginButton.UseVisualStyleBackColor = false;
 			loginButton.Click += loginButton_Click;
 			// 
-			// textBox1
+			// passwordTextBox
 			// 
-			textBox1.Location = new Point(52, 252);
-			textBox1.Name = "textBox1";
-			textBox1.PasswordChar = '*';
-			textBox1.Size = new Size(315, 23);
-			textBox1.TabIndex = 2;
-			textBox1.UseSystemPasswordChar = true;
+			passwordTextBox.Location = new Point(52, 252);
+			passwordTextBox.Name = "passwordTextBox";
+			passwordTextBox.PasswordChar = '*';
+			passwordTextBox.Size = new Size(315, 23);
+			passwordTextBox.TabIndex = 2;
+			passwordTextBox.UseSystemPasswordChar = true;
 			// 
 			// usernameTextBox
 			// 
@@ -187,7 +187,7 @@
 		private Label label1;
 		private Label getStartedLabel;
 		private TextBox usernameTextBox;
-		private TextBox textBox1;
+		private TextBox passwordTextBox;
 		private Button loginButton;
 	}
 }
