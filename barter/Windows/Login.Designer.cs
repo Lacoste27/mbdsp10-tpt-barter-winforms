@@ -34,6 +34,9 @@
 			panel1 = new Panel();
 			label1 = new Label();
 			LoginPanel = new Panel();
+			label3 = new Label();
+			label2 = new Label();
+			pictureBox1 = new PictureBox();
 			loginButton = new Button();
 			passwordTextBox = new TextBox();
 			usernameTextBox = new TextBox();
@@ -45,6 +48,7 @@
 			PanelImage.SuspendLayout();
 			panel1.SuspendLayout();
 			LoginPanel.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
 			SuspendLayout();
 			// 
 			// Spliter
@@ -102,6 +106,9 @@
 			// LoginPanel
 			// 
 			LoginPanel.BackColor = Color.White;
+			LoginPanel.Controls.Add(label3);
+			LoginPanel.Controls.Add(label2);
+			LoginPanel.Controls.Add(pictureBox1);
 			LoginPanel.Controls.Add(loginButton);
 			LoginPanel.Controls.Add(passwordTextBox);
 			LoginPanel.Controls.Add(usernameTextBox);
@@ -112,13 +119,42 @@
 			LoginPanel.Size = new Size(419, 526);
 			LoginPanel.TabIndex = 0;
 			// 
+			// label3
+			// 
+			label3.AutoSize = true;
+			label3.Location = new Point(49, 298);
+			label3.Name = "label3";
+			label3.Size = new Size(90, 15);
+			label3.TabIndex = 6;
+			label3.Text = "Your password :";
+			// 
+			// label2
+			// 
+			label2.AutoSize = true;
+			label2.Location = new Point(49, 223);
+			label2.Name = "label2";
+			label2.Size = new Size(69, 15);
+			label2.TabIndex = 5;
+			label2.Text = "Your email :";
+			// 
+			// pictureBox1
+			// 
+			pictureBox1.Image = Properties.Resources.cancel;
+			pictureBox1.Location = new Point(373, 12);
+			pictureBox1.Name = "pictureBox1";
+			pictureBox1.Size = new Size(34, 35);
+			pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+			pictureBox1.TabIndex = 4;
+			pictureBox1.TabStop = false;
+			pictureBox1.Click += pictureBox1_Click;
+			// 
 			// loginButton
 			// 
 			loginButton.BackColor = Color.FromArgb(39, 194, 64);
 			loginButton.FlatStyle = FlatStyle.Flat;
 			loginButton.Font = new Font("Segoe UI", 20F);
 			loginButton.ForeColor = Color.White;
-			loginButton.Location = new Point(100, 330);
+			loginButton.Location = new Point(100, 410);
 			loginButton.Name = "loginButton";
 			loginButton.Size = new Size(241, 55);
 			loginButton.TabIndex = 3;
@@ -128,29 +164,34 @@
 			// 
 			// passwordTextBox
 			// 
-			passwordTextBox.Location = new Point(52, 252);
+			passwordTextBox.Location = new Point(49, 328);
 			passwordTextBox.Name = "passwordTextBox";
 			passwordTextBox.PasswordChar = '*';
 			passwordTextBox.Size = new Size(315, 23);
 			passwordTextBox.TabIndex = 2;
+			passwordTextBox.Text = "azerty";
 			passwordTextBox.UseSystemPasswordChar = true;
+			passwordTextBox.TextChanged += passwordTextBox_TextChanged;
+			passwordTextBox.KeyDown += passwordTextBox_KeyDown;
 			// 
 			// usernameTextBox
 			// 
-			usernameTextBox.Location = new Point(49, 174);
+			usernameTextBox.Location = new Point(49, 253);
 			usernameTextBox.Name = "usernameTextBox";
 			usernameTextBox.Size = new Size(315, 23);
 			usernameTextBox.TabIndex = 1;
+			usernameTextBox.Text = "tsiory@mail.com";
 			// 
 			// getStartedLabel
 			// 
 			getStartedLabel.AutoSize = true;
 			getStartedLabel.Font = new Font("Verdana", 30F);
-			getStartedLabel.Location = new Point(93, 63);
+			getStartedLabel.Location = new Point(93, 130);
 			getStartedLabel.Name = "getStartedLabel";
 			getStartedLabel.Size = new Size(248, 48);
 			getStartedLabel.TabIndex = 0;
 			getStartedLabel.Text = "Get started";
+			getStartedLabel.Click += getStartedLabel_Click;
 			// 
 			// Login
 			// 
@@ -175,6 +216,7 @@
 			panel1.PerformLayout();
 			LoginPanel.ResumeLayout(false);
 			LoginPanel.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
 			ResumeLayout(false);
 		}
 
@@ -189,5 +231,8 @@
 		private TextBox usernameTextBox;
 		private TextBox passwordTextBox;
 		private Button loginButton;
+		private PictureBox pictureBox1;
+		private Label label2;
+		private Label label3;
 	}
 }

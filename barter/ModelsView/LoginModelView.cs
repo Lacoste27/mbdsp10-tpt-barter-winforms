@@ -43,7 +43,6 @@ namespace barter.ModelsView
 				MessageBox.Show(response.Message,"Message d'erreur",MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return false;
 			}
-			
 		}
 	}
 }

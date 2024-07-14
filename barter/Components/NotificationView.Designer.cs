@@ -28,30 +28,30 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			label1 = new Label();
-			label2 = new Label();
+			notificationTitle = new Label();
+			notificationMessage = new Label();
 			label3 = new Label();
 			SuspendLayout();
 			// 
-			// label1
+			// notificationTitle
 			// 
-			label1.AutoSize = true;
-			label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			label1.ForeColor = Color.FromArgb(39, 194, 64);
-			label1.Location = new Point(18, 10);
-			label1.Name = "label1";
-			label1.Size = new Size(135, 15);
-			label1.TabIndex = 0;
-			label1.Text = "This is your notification";
+			notificationTitle.AutoSize = true;
+			notificationTitle.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+			notificationTitle.ForeColor = Color.FromArgb(39, 194, 64);
+			notificationTitle.Location = new Point(18, 10);
+			notificationTitle.Name = "notificationTitle";
+			notificationTitle.Size = new Size(135, 15);
+			notificationTitle.TabIndex = 0;
+			notificationTitle.Text = "This is your notification";
 			// 
-			// label2
+			// notificationMessage
 			// 
-			label2.AutoSize = true;
-			label2.Location = new Point(18, 35);
-			label2.Name = "label2";
-			label2.Size = new Size(38, 15);
-			label2.TabIndex = 1;
-			label2.Text = "lorem";
+			notificationMessage.AutoSize = true;
+			notificationMessage.Location = new Point(18, 35);
+			notificationMessage.Name = "notificationMessage";
+			notificationMessage.Size = new Size(38, 15);
+			notificationMessage.TabIndex = 1;
+			notificationMessage.Text = "lorem";
 			// 
 			// label3
 			// 
@@ -70,18 +70,19 @@
 			BackColor = Color.WhiteSmoke;
 			BorderStyle = BorderStyle.FixedSingle;
 			Controls.Add(label3);
-			Controls.Add(label2);
-			Controls.Add(label1);
+			Controls.Add(notificationMessage);
+			Controls.Add(notificationTitle);
 			Name = "NotificationView";
 			Size = new Size(434, 72);
+			Load += NotificationView_Load;
 			ResumeLayout(false);
 			PerformLayout();
 		}
 
 		#endregion
 
-		private Label label1;
-		private Label label2;
+		private Label notificationTitle;
+		private Label notificationMessage;
 		private Label label3;
 	}
 }

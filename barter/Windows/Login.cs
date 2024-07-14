@@ -36,12 +36,47 @@ namespace barter.Windows
 				Password = passwordTextBox.Text
 			};
 
-			var response = await LoginModelView.Login(request.Email, request.Password);	
+			var response = await LoginModelView.Login(request.Email, request.Password);
 
-			if(response)
+			if (response)
 			{
-				Main main = new Main();
-				main.Show();
+				DialogResult = DialogResult.OK;
+				Close();
+			}
+		}
+
+		private void getStartedLabel_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void pictureBox1_Click(object sender, EventArgs e)
+		{
+			Close();
+		}
+
+		private void passwordTextBox_TextChanged(object sender, EventArgs e)
+		{
+
+		}
+
+		private async void passwordTextBox_KeyDown(object sender, KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.Enter)
+			{
+				AuthRequest request = new()
+				{
+					Email = usernameTextBox.Text,
+					Password = passwordTextBox.Text
+				};
+
+				var response = await LoginModelView.Login(request.Email, request.Password);
+
+				if (response)
+				{
+					DialogResult = DialogResult.OK;
+					Close();
+				}
 			}
 		}
 	}

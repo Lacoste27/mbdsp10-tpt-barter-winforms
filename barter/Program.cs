@@ -1,4 +1,5 @@
 global using Microsoft.Extensions.Logging;
+using barter.Utils;
 using barter.Windows;
 
 namespace barter
@@ -17,9 +18,21 @@ namespace barter
 
 			Service.ConfigureService();
 
+			bool isTokenExpired = TokenStorage.IsTokenExpired();
+
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new Login());
+
+			if (isTokenExpired) {
+				var loginForm = new Login();
+				if(loginForm.ShowDialog() == DialogResult.OK)
+				{
+					Application.Run(new Main());
+				}
+			} else {
+				Application.Run(new Main());
+			}
+
 		}
 	}
 }
