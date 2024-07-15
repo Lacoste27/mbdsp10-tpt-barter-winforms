@@ -33,22 +33,26 @@
 			panel3 = new Panel();
 			tabControl1 = new TabControl();
 			tabPage1 = new TabPage();
+			panel5 = new Panel();
+			panel4 = new Panel();
+			addButton = new Button();
 			tabPage2 = new TabPage();
 			panel2 = new Panel();
 			label1 = new Label();
 			pictureBox1 = new PictureBox();
-			tableLayoutPanel1 = new TableLayoutPanel();
-			listView1 = new ListView();
-			listView2 = new ListView();
-			listView3 = new ListView();
-			listView4 = new ListView();
+			panel6 = new Panel();
+			button1 = new Button();
+			panel7 = new Panel();
+			addPostButton = new Button();
 			panel1.SuspendLayout();
 			panel3.SuspendLayout();
 			tabControl1.SuspendLayout();
 			tabPage1.SuspendLayout();
+			panel4.SuspendLayout();
+			tabPage2.SuspendLayout();
 			panel2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-			tableLayoutPanel1.SuspendLayout();
+			panel6.SuspendLayout();
 			SuspendLayout();
 			// 
 			// panel1
@@ -88,7 +92,8 @@
 			// tabPage1
 			// 
 			tabPage1.BackColor = Color.White;
-			tabPage1.Controls.Add(tableLayoutPanel1);
+			tabPage1.Controls.Add(panel5);
+			tabPage1.Controls.Add(panel4);
 			tabPage1.Location = new Point(4, 44);
 			tabPage1.Name = "tabPage1";
 			tabPage1.Padding = new Padding(3);
@@ -96,9 +101,42 @@
 			tabPage1.TabIndex = 0;
 			tabPage1.Text = "Objects";
 			// 
+			// panel5
+			// 
+			panel5.Dock = DockStyle.Fill;
+			panel5.Location = new Point(3, 57);
+			panel5.Name = "panel5";
+			panel5.Size = new Size(1118, 339);
+			panel5.TabIndex = 1;
+			// 
+			// panel4
+			// 
+			panel4.Controls.Add(addButton);
+			panel4.Dock = DockStyle.Top;
+			panel4.Location = new Point(3, 3);
+			panel4.Name = "panel4";
+			panel4.Size = new Size(1118, 54);
+			panel4.TabIndex = 0;
+			// 
+			// addButton
+			// 
+			addButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+			addButton.Image = (Image)resources.GetObject("addButton.Image");
+			addButton.ImageAlign = ContentAlignment.MiddleLeft;
+			addButton.Location = new Point(1040, 15);
+			addButton.Name = "addButton";
+			addButton.Size = new Size(60, 23);
+			addButton.TabIndex = 0;
+			addButton.Text = "New";
+			addButton.TextAlign = ContentAlignment.MiddleRight;
+			addButton.UseVisualStyleBackColor = true;
+			addButton.Click += addButton_Click;
+			// 
 			// tabPage2
 			// 
 			tabPage2.BackColor = Color.White;
+			tabPage2.Controls.Add(panel7);
+			tabPage2.Controls.Add(panel6);
 			tabPage2.Location = new Point(4, 44);
 			tabPage2.Name = "tabPage2";
 			tabPage2.Padding = new Padding(3);
@@ -135,66 +173,50 @@
 			pictureBox1.TabIndex = 0;
 			pictureBox1.TabStop = false;
 			// 
-			// tableLayoutPanel1
+			// panel6
 			// 
-			tableLayoutPanel1.AutoScroll = true;
-			tableLayoutPanel1.ColumnCount = 1;
-			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-			tableLayoutPanel1.Controls.Add(listView4, 0, 3);
-			tableLayoutPanel1.Controls.Add(listView3, 0, 2);
-			tableLayoutPanel1.Controls.Add(listView2, 0, 1);
-			tableLayoutPanel1.Controls.Add(listView1, 0, 0);
-			tableLayoutPanel1.Dock = DockStyle.Fill;
-			tableLayoutPanel1.Location = new Point(3, 3);
-			tableLayoutPanel1.Name = "tableLayoutPanel1";
-			tableLayoutPanel1.Padding = new Padding(15);
-			tableLayoutPanel1.RowCount = 4;
-			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
-			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
-			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
-			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
-			tableLayoutPanel1.Size = new Size(1118, 393);
-			tableLayoutPanel1.TabIndex = 0;
+			panel6.Controls.Add(addPostButton);
+			panel6.Controls.Add(button1);
+			panel6.Dock = DockStyle.Top;
+			panel6.Location = new Point(3, 3);
+			panel6.Name = "panel6";
+			panel6.Size = new Size(1118, 54);
+			panel6.TabIndex = 1;
 			// 
-			// listView1
+			// button1
 			// 
-			listView1.BackColor = Color.WhiteSmoke;
-			listView1.BorderStyle = BorderStyle.Fixed3D;
-			listView1.Dock = DockStyle.Fill;
-			listView1.Location = new Point(18, 18);
-			listView1.Name = "listView1";
-			listView1.Size = new Size(1082, 84);
-			listView1.TabIndex = 0;
+			button1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+			button1.Image = (Image)resources.GetObject("button1.Image");
+			button1.ImageAlign = ContentAlignment.MiddleLeft;
+			button1.Location = new Point(1958, 15);
+			button1.Name = "button1";
+			button1.Size = new Size(60, 23);
+			button1.TabIndex = 0;
+			button1.Text = "New";
+			button1.TextAlign = ContentAlignment.MiddleRight;
+			button1.UseVisualStyleBackColor = true;
 			// 
-			// listView2
+			// panel7
 			// 
-			listView2.BackColor = Color.WhiteSmoke;
-			listView2.BorderStyle = BorderStyle.Fixed3D;
-			listView2.Dock = DockStyle.Fill;
-			listView2.Location = new Point(18, 108);
-			listView2.Name = "listView2";
-			listView2.Size = new Size(1082, 84);
-			listView2.TabIndex = 1;
+			panel7.Dock = DockStyle.Fill;
+			panel7.Location = new Point(3, 57);
+			panel7.Name = "panel7";
+			panel7.Size = new Size(1118, 339);
+			panel7.TabIndex = 2;
 			// 
-			// listView3
+			// addPostButton
 			// 
-			listView3.BackColor = Color.WhiteSmoke;
-			listView3.BorderStyle = BorderStyle.Fixed3D;
-			listView3.Dock = DockStyle.Fill;
-			listView3.Location = new Point(18, 198);
-			listView3.Name = "listView3";
-			listView3.Size = new Size(1082, 84);
-			listView3.TabIndex = 2;
-			// 
-			// listView4
-			// 
-			listView4.BackColor = Color.WhiteSmoke;
-			listView4.BorderStyle = BorderStyle.Fixed3D;
-			listView4.Dock = DockStyle.Fill;
-			listView4.Location = new Point(18, 288);
-			listView4.Name = "listView4";
-			listView4.Size = new Size(1082, 87);
-			listView4.TabIndex = 3;
+			addPostButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+			addPostButton.Image = (Image)resources.GetObject("addPostButton.Image");
+			addPostButton.ImageAlign = ContentAlignment.MiddleLeft;
+			addPostButton.Location = new Point(1040, 15);
+			addPostButton.Name = "addPostButton";
+			addPostButton.Size = new Size(60, 23);
+			addPostButton.TabIndex = 1;
+			addPostButton.Text = "New";
+			addPostButton.TextAlign = ContentAlignment.MiddleRight;
+			addPostButton.UseVisualStyleBackColor = true;
+			addPostButton.Click += addPostButton_Click;
 			// 
 			// Profil
 			// 
@@ -207,10 +229,12 @@
 			panel3.ResumeLayout(false);
 			tabControl1.ResumeLayout(false);
 			tabPage1.ResumeLayout(false);
+			panel4.ResumeLayout(false);
+			tabPage2.ResumeLayout(false);
 			panel2.ResumeLayout(false);
 			panel2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-			tableLayoutPanel1.ResumeLayout(false);
+			panel6.ResumeLayout(false);
 			ResumeLayout(false);
 		}
 
@@ -224,10 +248,12 @@
 		private TabPage tabPage2;
 		private PictureBox pictureBox1;
 		private Label label1;
-		private TableLayoutPanel tableLayoutPanel1;
-		private ListView listView1;
-		private ListView listView3;
-		private ListView listView2;
-		private ListView listView4;
+		private Panel panel4;
+		private Panel panel5;
+		private Button addButton;
+		private Panel panel6;
+		private Button button1;
+		private Panel panel7;
+		private Button addPostButton;
 	}
 }

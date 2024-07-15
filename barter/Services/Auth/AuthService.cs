@@ -2,17 +2,12 @@
 using barter.Responses;
 using barter.Services.Api;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http.Json;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
+using System.Net.Http.Json;
 
 namespace barter.Services.Auth
 {
-	public class AuthService  : IAuthService
+	public class AuthService : IAuthService
 	{
 		private IApiService ApiService { get; set; }
 		private string endpoint = "api/auth";

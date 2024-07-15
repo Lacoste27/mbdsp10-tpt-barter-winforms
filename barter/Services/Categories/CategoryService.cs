@@ -1,16 +1,15 @@
 ﻿using barter.Models;
+using barter.Requests;
 using barter.Responses;
 using barter.Services.Api;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using Newtonsoft.Json;
+using System.IO;
+using System.Net;
 using System.Net.Http.Json;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace barter.Services.Categories
 {
-	public class CategoryService  : ICategoryService
+	public class CategoryService : ICategoryService
 	{
 		private IApiService ApiService { get; set; }
 		private string endpoint = "api/categories";
@@ -68,6 +67,37 @@ namespace barter.Services.Categories
 			catch (Exception Exception)
 			{
 				return new Response<Category>(Status.Error, null, Exception.Message);
+			}
+		}
+
+		public async Task<Response<Category>> AddCategory(CategoryRequest request)
+		{
+			try
+			{
+				HttpResponseMessage response = await this.ApiService.GetClient().PostAsJsonAsync(
+				endpoint, request);
+
+				if (response.IsSuccessStatusCode)
+				{
+					var data = await response.Content.ReadFromJsonAsync<Category>();
+					return new Response<Category>(Status.Success, data);
+				}
+				else if (response.StatusCode == HttpStatusCode.BadRequest)
+				{
+					var errorContent = await response.Content.ReadAsStringAsync();
+					var badRequestResponse = JsonConvert.DeserializeObject<BadRequest>(errorContent);
+					var errorMessage = string.Join(";\n ", badRequestResponse.Errors.Select(e => e.Msg));
+					return new Response<Category>(Status.Error, null, errorMessage);
+				}
+				else
+				{
+					var errorMessage = await response.Content.ReadAsStringAsync();
+					return new Response<Category>(Status.Error, null, errorMessage);
+				}
+			}
+			catch (Exception Exception)
+			{
+				return new Response<Category>(Status.Error, null, Exception.Message, Exception);
 			}
 		}
 	}

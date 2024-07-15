@@ -1,14 +1,7 @@
-﻿using barter.Models;
-using barter.Requests;
+﻿using barter.Requests;
 using barter.Responses;
 using barter.Services.Auth;
-using barter.Services.Notifications;
 using barter.Utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace barter.ModelsView
 {
@@ -23,7 +16,7 @@ namespace barter.ModelsView
 
 		public async Task<bool> Login(string email, string password)
 		{
-			
+
 			AuthRequest request = new AuthRequest()
 			{
 				Email = email,
@@ -32,7 +25,7 @@ namespace barter.ModelsView
 
 			var response = await AuthService.Login(request);
 
-			if(response.Status == Status.Success)
+			if (response.Status == Status.Success)
 			{
 				TokenStorage.SaveToken(response.Data.Token);
 
@@ -40,7 +33,7 @@ namespace barter.ModelsView
 			}
 			else
 			{
-				MessageBox.Show(response.Message,"Message d'erreur",MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(response.Message, "Message d'erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return false;
 			}
 		}

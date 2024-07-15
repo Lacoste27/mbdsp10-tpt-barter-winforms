@@ -1,12 +1,6 @@
 ﻿using barter.Models;
 using barter.Responses;
-using barter.Services.Auth;
 using barter.Services.Notifications;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace barter.ModelsView
 {
@@ -23,9 +17,12 @@ namespace barter.ModelsView
 		{
 			var response = await NotificationService.GetUserNotification(1);
 
-			if (response.Status == Status.Success) {
+			if (response.Status == Status.Success)
+			{
 				return response.Data;
-			} else {
+			}
+			else
+			{
 				MessageBox.Show(response.Message, "Message d'erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return null;
 			}

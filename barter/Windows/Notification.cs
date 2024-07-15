@@ -1,14 +1,5 @@
 ﻿using barter.Components;
 using barter.ModelsView;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace barter.Windows
 {
@@ -33,11 +24,11 @@ namespace barter.Windows
 		{
 			var notifications = await NotificationModelView.GetNotifications();
 
-			if(notifications is not null)
+			if (notifications is not null)
 			{
 				int id = 1;
-                foreach (var notification in notifications)
-                {
+				foreach (var notification in notifications)
+				{
 					NotificationView view = new NotificationView();
 					view.Dock = DockStyle.Fill;
 

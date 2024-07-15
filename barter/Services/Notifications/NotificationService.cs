@@ -3,17 +3,8 @@ using barter.Requests;
 using barter.Responses;
 using barter.Services.Api;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net.Http.Json;
 using System.Net;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using Microsoft.VisualBasic.ApplicationServices;
+using System.Net.Http.Json;
 
 namespace barter.Services.Notifications
 {
@@ -37,7 +28,7 @@ namespace barter.Services.Notifications
 				if (response.IsSuccessStatusCode)
 				{
 					var data = await response.Content.ReadFromJsonAsync<List<Notification>>();
-					return new Response<List<Notification>> (Status.Success, data);
+					return new Response<List<Notification>>(Status.Success, data);
 				}
 				else
 				{
@@ -45,8 +36,10 @@ namespace barter.Services.Notifications
 					return new Response<List<Notification>>(Status.Error, null, errorMessage);
 				}
 
-			} catch(Exception Exception) {
-				return new Response<List<Notification>> (Status.Error, null, Exception.Message);
+			}
+			catch (Exception Exception)
+			{
+				return new Response<List<Notification>>(Status.Error, null, Exception.Message);
 			}
 		}
 
@@ -68,12 +61,14 @@ namespace barter.Services.Notifications
 					return new Response<List<Notification>>(Status.Error, null, errorMessage);
 				}
 			}
-			catch (Exception Exception) { 
-				return new Response<List<Notification>> (Status.Error, null, Exception.Message);
+			catch (Exception Exception)
+			{
+				return new Response<List<Notification>>(Status.Error, null, Exception.Message);
 			}
 		}
 
-		public async Task<Response<Notification>> AddNotification(NotificationRequest request) {
+		public async Task<Response<Notification>> AddNotification(NotificationRequest request)
+		{
 			try
 			{
 				HttpResponseMessage response = await this.ApiService.GetClient().PostAsJsonAsync(
@@ -107,7 +102,7 @@ namespace barter.Services.Notifications
 		{
 			try
 			{
-				string path = string.Format("{0}/{1}/read",endpoint, request._Id);
+				string path = string.Format("{0}/{1}/read", endpoint, request._Id);
 
 				HttpResponseMessage response = await this.ApiService.GetClient().PutAsJsonAsync(
 					path, request);
@@ -123,7 +118,7 @@ namespace barter.Services.Notifications
 					return new Response<Notification>(Status.Error, null, errorMessage);
 				}
 			}
-			catch(Exception Exception)
+			catch (Exception Exception)
 			{
 				return new Response<Notification>(Status.Error, null, Exception.Message);
 			}

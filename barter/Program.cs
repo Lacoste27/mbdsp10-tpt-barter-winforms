@@ -23,13 +23,16 @@ namespace barter
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 
-			if (isTokenExpired) {
+			if (isTokenExpired)
+			{
 				var loginForm = new Login();
-				if(loginForm.ShowDialog() == DialogResult.OK)
+				if (loginForm.ShowDialog() == DialogResult.OK)
 				{
 					Application.Run(new Main());
 				}
-			} else {
+			}
+			else
+			{
 				Application.Run(new Main());
 			}
 

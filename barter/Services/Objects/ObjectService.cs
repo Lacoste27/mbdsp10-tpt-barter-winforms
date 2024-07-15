@@ -1,12 +1,6 @@
-﻿using barter.Models;
-using barter.Responses;
+﻿using barter.Responses;
 using barter.Services.Api;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http.Json;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace barter.Services.Objects
 {
