@@ -1,4 +1,5 @@
 ﻿using barter.Components;
+using barter.Models;
 using barter.ModelsView;
 
 namespace barter.Windows
@@ -24,7 +25,7 @@ namespace barter.Windows
 		{
 			var notifications = await NotificationModelView.GetNotifications();
 
-			if (notifications is not null)
+			/*if (notifications is not null)
 			{
 				int id = 1;
 				foreach (var notification in notifications)
@@ -43,6 +44,21 @@ namespace barter.Windows
 
 					id++;
 				}
+			}*/
+
+            for (int i = 0; i < 4; i++)
+            {
+				NotificationView view = new NotificationView();
+				view.Dock = DockStyle.Fill;
+
+				view.BackColor = UNREAD_COLOR;
+				view.BorderStyle = BorderStyle.FixedSingle;
+				view.Location = new Point(3, 3);
+				view.Name = string.Format("notification_{0}", i);
+				view.Size = new Size(434, 72);
+				view.TabIndex = i;
+
+				notificationLayout.Controls.Add(view);
 			}
 		}
 	}

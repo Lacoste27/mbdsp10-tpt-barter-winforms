@@ -20,19 +20,30 @@ namespace barter.Windows
 
 		private async void loginButton_Click(object sender, EventArgs e)
 		{
-			AuthRequest request = new()
-			{
-				Email = usernameTextBox.Text,
-				Password = passwordTextBox.Text
-			};
+			loginButton.Enabled = false;
+			loginButton.Text = "Loading...";
 
-			var response = await LoginModelView.Login(request.Email, request.Password);
-
-			if (response)
+			try
 			{
-				DialogResult = DialogResult.OK;
-				Close();
+				AuthRequest request = new()
+				{
+					Email = usernameTextBox.Text,
+					Password = passwordTextBox.Text
+				};
+
+				var response = await LoginModelView.Login(request.Email, request.Password);
+
+				if (response)
+				{
+					DialogResult = DialogResult.OK;
+					Close();
+				}
 			}
+			finally
+			{
+				loginButton.Enabled = true;
+			}
+
 		}
 
 		private void getStartedLabel_Click(object sender, EventArgs e)

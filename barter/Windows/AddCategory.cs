@@ -23,16 +23,27 @@ namespace barter.Windows
 
 		private async void saveButton_Click(object sender, EventArgs e)
 		{
-			var categoryRequest = new CategoryRequest()
+			saveButton.Enabled = false;
+			saveButton.Text = "Loading...";
+			try
 			{
-				Title = titleTextBox.Text
-			};
+				var categoryRequest = new CategoryRequest()
+				{
+					Title = titleTextBox.Text
+				};
 
-			var category = await this.addCategoryModelView.AddCategory(categoryRequest);
+				var category = await this.addCategoryModelView.AddCategory(categoryRequest);
 
-			if(category is not null) {
-				MessageBox.Show("Category added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-				this.Close();
+				if (category is not null)
+				{
+					MessageBox.Show("Category added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					Close();
+				}
+			}
+			finally
+			{
+				saveButton.Text = "Save";
+				saveButton.Enabled = true;
 			}
 		}
 	}

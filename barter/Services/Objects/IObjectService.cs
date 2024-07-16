@@ -1,4 +1,6 @@
-﻿using barter.Responses;
+﻿using barter.Models;
+using barter.Requests;
+using barter.Responses;
 
 namespace barter.Services.Objects
 {
@@ -7,5 +9,6 @@ namespace barter.Services.Objects
 		public Task<Response<List<Models.Object>>> GetAllObjects();
 		public Task<Response<Models.Object>> GetUserObjects(int userId);
 		public Task<Response<Models.Object>> GetObjectByid(int id);
+		public Task<Response<Models.Object>> AddObject(ObjectRequest request);
 	}
 }

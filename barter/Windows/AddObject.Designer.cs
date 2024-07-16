@@ -68,14 +68,13 @@
 			splitContainer1.Panel1.Controls.Add(label2);
 			splitContainer1.Panel1.Controls.Add(nameTextBox);
 			splitContainer1.Panel1.Controls.Add(label1);
-			splitContainer1.Panel1.Paint += splitContainer1_Panel1_Paint;
 			// 
 			// splitContainer1.Panel2
 			// 
 			splitContainer1.Panel2.Controls.Add(panel2);
 			splitContainer1.Panel2.Controls.Add(panel1);
-			splitContainer1.Size = new Size(807, 635);
-			splitContainer1.SplitterDistance = 330;
+			splitContainer1.Size = new Size(421, 508);
+			splitContainer1.SplitterDistance = 337;
 			splitContainer1.SplitterWidth = 1;
 			splitContainer1.TabIndex = 0;
 			// 
@@ -93,7 +92,7 @@
 			// 
 			descriptionTextBox.Location = new Point(45, 193);
 			descriptionTextBox.Name = "descriptionTextBox";
-			descriptionTextBox.Size = new Size(709, 118);
+			descriptionTextBox.Size = new Size(345, 118);
 			descriptionTextBox.TabIndex = 5;
 			descriptionTextBox.Text = "";
 			// 
@@ -127,7 +126,7 @@
 			// 
 			nameTextBox.Location = new Point(44, 41);
 			nameTextBox.Name = "nameTextBox";
-			nameTextBox.Size = new Size(456, 23);
+			nameTextBox.Size = new Size(346, 23);
 			nameTextBox.TabIndex = 1;
 			// 
 			// label1
@@ -146,7 +145,7 @@
 			panel2.Dock = DockStyle.Fill;
 			panel2.Location = new Point(0, 0);
 			panel2.Name = "panel2";
-			panel2.Size = new Size(807, 263);
+			panel2.Size = new Size(421, 129);
 			panel2.TabIndex = 1;
 			// 
 			// imagePanel
@@ -157,7 +156,7 @@
 			imagePanel.Location = new Point(0, 0);
 			imagePanel.Name = "imagePanel";
 			imagePanel.Padding = new Padding(10);
-			imagePanel.Size = new Size(803, 259);
+			imagePanel.Size = new Size(417, 125);
 			imagePanel.TabIndex = 0;
 			// 
 			// addImageButton
@@ -167,15 +166,16 @@
 			addImageButton.Name = "addImageButton";
 			addImageButton.Size = new Size(100, 100);
 			addImageButton.TabIndex = 0;
-			addImageButton.DoubleClick += addImageButton_Click;
+			addImageButton.Load += addImageButton_Load;
+			addImageButton.Click += addImageButton_Click;
 			// 
 			// panel1
 			// 
 			panel1.Controls.Add(saveButton);
 			panel1.Dock = DockStyle.Bottom;
-			panel1.Location = new Point(0, 263);
+			panel1.Location = new Point(0, 129);
 			panel1.Name = "panel1";
-			panel1.Size = new Size(807, 41);
+			panel1.Size = new Size(421, 41);
 			panel1.TabIndex = 0;
 			// 
 			// saveButton
@@ -183,13 +183,14 @@
 			saveButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
 			saveButton.Image = Properties.Resources.save;
 			saveButton.ImageAlign = ContentAlignment.MiddleLeft;
-			saveButton.Location = new Point(730, 6);
+			saveButton.Location = new Point(344, 6);
 			saveButton.Name = "saveButton";
 			saveButton.Size = new Size(65, 28);
 			saveButton.TabIndex = 3;
 			saveButton.Text = "Save";
 			saveButton.TextAlign = ContentAlignment.MiddleRight;
 			saveButton.UseVisualStyleBackColor = true;
+			saveButton.Click += saveButton_Click;
 			// 
 			// openFileDialog
 			// 
@@ -202,14 +203,15 @@
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.White;
-			ClientSize = new Size(807, 635);
+			ClientSize = new Size(421, 508);
 			Controls.Add(splitContainer1);
 			Icon = (Icon)resources.GetObject("$this.Icon");
-			MaximumSize = new Size(823, 674);
-			MinimumSize = new Size(823, 674);
+			MaximumSize = new Size(437, 547);
+			MinimumSize = new Size(437, 547);
 			Name = "AddObject";
 			StartPosition = FormStartPosition.CenterScreen;
 			Text = "Add new objet";
+			Load += AddObject_Load;
 			splitContainer1.Panel1.ResumeLayout(false);
 			splitContainer1.Panel1.PerformLayout();
 			splitContainer1.Panel2.ResumeLayout(false);
