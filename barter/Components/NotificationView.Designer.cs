@@ -30,7 +30,7 @@
 		{
 			notificationTitle = new Label();
 			notificationMessage = new Label();
-			label3 = new Label();
+			timeText = new Label();
 			SuspendLayout();
 			// 
 			// notificationTitle
@@ -53,15 +53,16 @@
 			notificationMessage.TabIndex = 1;
 			notificationMessage.Text = "lorem";
 			// 
-			// label3
+			// timeText
 			// 
-			label3.AutoSize = true;
-			label3.ForeColor = Color.Silver;
-			label3.Location = new Point(383, 47);
-			label3.Name = "label3";
-			label3.Size = new Size(41, 15);
-			label3.TabIndex = 2;
-			label3.Text = "1 hour";
+			timeText.AutoSize = true;
+			timeText.ForeColor = Color.Silver;
+			timeText.Location = new Point(383, 47);
+			timeText.Name = "timeText";
+			timeText.Size = new Size(41, 15);
+			timeText.TabIndex = 2;
+			timeText.Text = "1 hour";
+			timeText.TextAlign = ContentAlignment.MiddleCenter;
 			// 
 			// NotificationView
 			// 
@@ -69,12 +70,13 @@
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.WhiteSmoke;
 			BorderStyle = BorderStyle.FixedSingle;
-			Controls.Add(label3);
+			Controls.Add(timeText);
 			Controls.Add(notificationMessage);
 			Controls.Add(notificationTitle);
 			Name = "NotificationView";
 			Size = new Size(434, 72);
 			Load += NotificationView_Load;
+			Click += NotificationView_Click;
 			ResumeLayout(false);
 			PerformLayout();
 		}
@@ -83,6 +85,6 @@
 
 		private Label notificationTitle;
 		private Label notificationMessage;
-		private Label label3;
+		private Label timeText;
 	}
 }

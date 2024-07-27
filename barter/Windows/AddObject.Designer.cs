@@ -73,15 +73,15 @@
 			// 
 			splitContainer1.Panel2.Controls.Add(panel2);
 			splitContainer1.Panel2.Controls.Add(panel1);
-			splitContainer1.Size = new Size(421, 508);
-			splitContainer1.SplitterDistance = 337;
+			splitContainer1.Size = new Size(664, 640);
+			splitContainer1.SplitterDistance = 423;
 			splitContainer1.SplitterWidth = 1;
 			splitContainer1.TabIndex = 0;
 			// 
 			// newCategoryButton
 			// 
 			newCategoryButton.Image = (Image)resources.GetObject("newCategoryButton.Image");
-			newCategoryButton.Location = new Point(232, 111);
+			newCategoryButton.Location = new Point(585, 112);
 			newCategoryButton.Name = "newCategoryButton";
 			newCategoryButton.Size = new Size(31, 23);
 			newCategoryButton.TabIndex = 6;
@@ -92,7 +92,7 @@
 			// 
 			descriptionTextBox.Location = new Point(45, 193);
 			descriptionTextBox.Name = "descriptionTextBox";
-			descriptionTextBox.Size = new Size(345, 118);
+			descriptionTextBox.Size = new Size(571, 202);
 			descriptionTextBox.TabIndex = 5;
 			descriptionTextBox.Text = "";
 			// 
@@ -110,7 +110,7 @@
 			categoryComboBox.FormattingEnabled = true;
 			categoryComboBox.Location = new Point(45, 112);
 			categoryComboBox.Name = "categoryComboBox";
-			categoryComboBox.Size = new Size(181, 23);
+			categoryComboBox.Size = new Size(534, 23);
 			categoryComboBox.TabIndex = 3;
 			// 
 			// label2
@@ -126,7 +126,7 @@
 			// 
 			nameTextBox.Location = new Point(44, 41);
 			nameTextBox.Name = "nameTextBox";
-			nameTextBox.Size = new Size(346, 23);
+			nameTextBox.Size = new Size(535, 23);
 			nameTextBox.TabIndex = 1;
 			// 
 			// label1
@@ -145,7 +145,7 @@
 			panel2.Dock = DockStyle.Fill;
 			panel2.Location = new Point(0, 0);
 			panel2.Name = "panel2";
-			panel2.Size = new Size(421, 129);
+			panel2.Size = new Size(664, 175);
 			panel2.TabIndex = 1;
 			// 
 			// imagePanel
@@ -156,7 +156,7 @@
 			imagePanel.Location = new Point(0, 0);
 			imagePanel.Name = "imagePanel";
 			imagePanel.Padding = new Padding(10);
-			imagePanel.Size = new Size(417, 125);
+			imagePanel.Size = new Size(660, 171);
 			imagePanel.TabIndex = 0;
 			// 
 			// addImageButton
@@ -166,16 +166,14 @@
 			addImageButton.Name = "addImageButton";
 			addImageButton.Size = new Size(100, 100);
 			addImageButton.TabIndex = 0;
-			addImageButton.Load += addImageButton_Load;
-			addImageButton.Click += addImageButton_Click;
 			// 
 			// panel1
 			// 
 			panel1.Controls.Add(saveButton);
 			panel1.Dock = DockStyle.Bottom;
-			panel1.Location = new Point(0, 129);
+			panel1.Location = new Point(0, 175);
 			panel1.Name = "panel1";
-			panel1.Size = new Size(421, 41);
+			panel1.Size = new Size(664, 41);
 			panel1.TabIndex = 0;
 			// 
 			// saveButton
@@ -183,7 +181,7 @@
 			saveButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
 			saveButton.Image = Properties.Resources.save;
 			saveButton.ImageAlign = ContentAlignment.MiddleLeft;
-			saveButton.Location = new Point(344, 6);
+			saveButton.Location = new Point(587, 6);
 			saveButton.Name = "saveButton";
 			saveButton.Size = new Size(65, 28);
 			saveButton.TabIndex = 3;
@@ -203,11 +201,11 @@
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.White;
-			ClientSize = new Size(421, 508);
+			ClientSize = new Size(664, 640);
 			Controls.Add(splitContainer1);
 			Icon = (Icon)resources.GetObject("$this.Icon");
-			MaximumSize = new Size(437, 547);
-			MinimumSize = new Size(437, 547);
+			MaximumSize = new Size(680, 679);
+			MinimumSize = new Size(680, 679);
 			Name = "AddObject";
 			StartPosition = FormStartPosition.CenterScreen;
 			Text = "Add new objet";
@@ -237,7 +235,7 @@
 		private Button saveButton;
 		private Button newCategoryButton;
 		private FlowLayoutPanel imagePanel;
-		private Components.ImageView addImageButton;
 		private OpenFileDialog openFileDialog;
+		private Components.ImageView addImageButton;
 	}
 }

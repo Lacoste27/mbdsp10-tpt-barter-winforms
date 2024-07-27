@@ -17,6 +17,8 @@ namespace barter.Windows
 {
 	public partial class AddObject : Form
 	{
+		private List<ImageView> imageList = new List<ImageView>();
+
 		private AddObjectModelView addObjectModelView { get; set; } = new AddObjectModelView();
 
 		public AddObject()
@@ -36,11 +38,7 @@ namespace barter.Windows
 			addCategory.ShowDialog();
 		}
 
-		private void imageView1_Load(object sender, EventArgs e)
-		{
-
-		}
-
+	
 		private void addImageButton_Click(object sender, EventArgs e)
 		{
 			/*if (openFileDialog.ShowDialog() == DialogResult.OK)
@@ -59,6 +57,31 @@ namespace barter.Windows
 		private void AddObject_Load(object sender, EventArgs e)
 		{
 			SetCategoryDataSource();
+
+			this.addImageButton.picture.Click += (s, e) =>
+			{
+				OpenFileDialog openFileDialog = new();
+				openFileDialog.Filter = "Image Files(*.jpg; *.jpeg; *.png; *.bmp)|*.jpg; *.jpeg; *.png; *.bmp";
+				openFileDialog.Multiselect = false;
+
+				try
+				{
+					if (openFileDialog.ShowDialog() == DialogResult.OK)
+					{
+						string filename = openFileDialog.FileName;
+
+						Image image = Image.FromFile(filename);
+						ImageView imageView = new ImageView(image, filename);
+
+						this.imagePanel.Controls.Add(imageView);
+						this.imageList.Add(imageView);
+					}
+				}
+				catch (Exception Exception)
+				{
+					MessageBox.Show("An error occurred !");
+				}
+			};
 		}
 
 		private async void SetCategoryDataSource()
@@ -67,9 +90,10 @@ namespace barter.Windows
 
 			try
 			{
-				var categoryData = await addObjectModelView.GetCategoryData();
+				Dictionary<int, string> categoryData = await addObjectModelView.GetCategoryData();
+				
 
-				if (categoryData is not null)
+				if (categoryData is not null && categoryData.Count != 0)
 				{
 					categoryComboBox.DataSource = new BindingSource(categoryData, null);
 					categoryComboBox.DisplayMember = "Value";
@@ -89,16 +113,17 @@ namespace barter.Windows
 
 		private async void saveButton_Click(object sender, EventArgs e)
 		{
-
 			saveButton.Enabled = false;
 			saveButton.Text = "Loading...";
 
 			try
 			{
+				int.TryParse(categoryComboBox.SelectedValue?.ToString() ?? "", out int categoryId);
+
 				string name = nameTextBox.Text;
-				int categoryId = (int)categoryComboBox.SelectedValue;
 				string description = descriptionTextBox.Text;
 				int ownerId = TokenStorage.GetUserId();
+				List<string> images = this.imageList.Select(image => image.Filename).ToList();
 
 				ObjectRequest request = new()
 				{
@@ -106,7 +131,7 @@ namespace barter.Windows
 					Description = description,
 					Name = name,
 					OwnerId = ownerId,
-					Image = "Image",
+					Image = images
 				};
 
 				var _object = await addObjectModelView.AddObject(request);
@@ -124,9 +149,5 @@ namespace barter.Windows
 			}
 		}
 
-		private void addImageButton_Load(object sender, EventArgs e)
-		{
-
-		}
 	}
 }

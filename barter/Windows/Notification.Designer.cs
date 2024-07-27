@@ -32,7 +32,7 @@
 			panel1 = new Panel();
 			label1 = new Label();
 			panel2 = new Panel();
-			notificationLayout = new FlowLayoutPanel();
+			notificationPanel = new FlowLayoutPanel();
 			panel1.SuspendLayout();
 			panel2.SuspendLayout();
 			SuspendLayout();
@@ -57,22 +57,21 @@
 			// 
 			// panel2
 			// 
-			panel2.Controls.Add(notificationLayout);
+			panel2.Controls.Add(notificationPanel);
 			panel2.Dock = DockStyle.Fill;
 			panel2.Location = new Point(0, 41);
 			panel2.Name = "panel2";
 			panel2.Size = new Size(441, 323);
 			panel2.TabIndex = 1;
 			// 
-			// notificationLayout
+			// notificationPanel
 			// 
-			notificationLayout.AutoScroll = true;
-			notificationLayout.Dock = DockStyle.Fill;
-			notificationLayout.FlowDirection = FlowDirection.TopDown;
-			notificationLayout.Location = new Point(0, 0);
-			notificationLayout.Name = "notificationLayout";
-			notificationLayout.Size = new Size(441, 323);
-			notificationLayout.TabIndex = 0;
+			notificationPanel.AutoScroll = true;
+			notificationPanel.Dock = DockStyle.Fill;
+			notificationPanel.Location = new Point(0, 0);
+			notificationPanel.Name = "notificationPanel";
+			notificationPanel.Size = new Size(441, 323);
+			notificationPanel.TabIndex = 0;
 			// 
 			// Notification
 			// 
@@ -99,7 +98,7 @@
 
 		private Panel panel1;
 		private Panel panel2;
-		private FlowLayoutPanel notificationLayout;
 		private Label label1;
+		private FlowLayoutPanel notificationPanel;
 	}
 }

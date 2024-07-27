@@ -3,8 +3,10 @@ using barter.Requests;
 using barter.Responses;
 using barter.Services.Categories;
 using barter.Services.Objects;
+using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +27,17 @@ namespace barter.ModelsView
 
 		public async Task<Models.Object> AddObject(ObjectRequest request )
 		{
+			var validationResults = new List<ValidationResult>();
+			var validationContext = new ValidationContext(request);
+
+			if (!Validator.TryValidateObject(request, validationContext, validationResults, true))
+			{
+				string errorMessage = "Error message :" + Environment.NewLine +
+									  string.Join(Environment.NewLine, validationResults.Select(vr => $"- {vr.ErrorMessage}"));
+				MessageBox.Show(errorMessage, "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return null;
+			}
+
 			var response = await ObjectService.AddObject(request);
 
 			if (response.Status == Status.Success)
@@ -33,9 +46,10 @@ namespace barter.ModelsView
 			}
 			else
 			{
-				MessageBox.Show(response.Message, "Message d'erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(response.Message, "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return null;
 			}
+
 		}
 
 		public async Task<Dictionary<int, string>> GetCategoryData()
@@ -59,7 +73,7 @@ namespace barter.ModelsView
 			}
 			else
 			{
-				MessageBox.Show(response.Message, "Message d'erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(response.Message, "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return null;
 			}
 		}

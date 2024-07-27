@@ -1,6 +1,7 @@
 ﻿using barter.Models;
 using barter.Responses;
 using barter.Services.Notifications;
+using barter.Utils;
 
 namespace barter.ModelsView
 {
@@ -15,11 +16,12 @@ namespace barter.ModelsView
 
 		public async Task<List<Notification>> GetNotifications()
 		{
-			var response = await NotificationService.GetUserNotification(1);
+			int userId = TokenStorage.GetUserId();
+			var response = await NotificationService.GetUserNotification(userId);
 
 			if (response.Status == Status.Success)
 			{
-				return response.Data;
+				return response.Data.OrderBy(notification => notification.CreatedAt).ThenByDescending(notification => notification.IsRead).ToList();
 			}
 			else
 			{

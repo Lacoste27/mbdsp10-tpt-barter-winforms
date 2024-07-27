@@ -28,11 +28,13 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Posts));
 			panel1 = new Panel();
+			mapViewButton = new Button();
+			label1 = new Label();
 			panel2 = new Panel();
 			flowLayoutPanel1 = new FlowLayoutPanel();
 			card1 = new Card();
-			label1 = new Label();
 			card2 = new Card();
 			card3 = new Card();
 			card4 = new Card();
@@ -45,12 +47,37 @@
 			// 
 			// panel1
 			// 
+			panel1.Controls.Add(mapViewButton);
 			panel1.Controls.Add(label1);
 			panel1.Dock = DockStyle.Top;
 			panel1.Location = new Point(0, 0);
 			panel1.Name = "panel1";
 			panel1.Size = new Size(1192, 53);
 			panel1.TabIndex = 0;
+			panel1.Paint += panel1_Paint;
+			// 
+			// mapViewButton
+			// 
+			mapViewButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+			mapViewButton.Image = (Image)resources.GetObject("mapViewButton.Image");
+			mapViewButton.ImageAlign = ContentAlignment.MiddleRight;
+			mapViewButton.Location = new Point(1084, 8);
+			mapViewButton.Name = "mapViewButton";
+			mapViewButton.Size = new Size(96, 34);
+			mapViewButton.TabIndex = 1;
+			mapViewButton.Text = "Map View";
+			mapViewButton.TextAlign = ContentAlignment.MiddleLeft;
+			mapViewButton.UseVisualStyleBackColor = true;
+			mapViewButton.Click += mapViewButton_Click;
+			// 
+			// label1
+			// 
+			label1.AutoSize = true;
+			label1.Location = new Point(26, 18);
+			label1.Name = "label1";
+			label1.Size = new Size(60, 15);
+			label1.TabIndex = 0;
+			label1.Text = "Mes posts";
 			// 
 			// panel2
 			// 
@@ -88,15 +115,6 @@
 			card1.Name = "card1";
 			card1.Size = new Size(387, 222);
 			card1.TabIndex = 0;
-			// 
-			// label1
-			// 
-			label1.AutoSize = true;
-			label1.Location = new Point(26, 18);
-			label1.Name = "label1";
-			label1.Size = new Size(60, 15);
-			label1.TabIndex = 0;
-			label1.Text = "Mes posts";
 			// 
 			// card2
 			// 
@@ -178,5 +196,6 @@
 		private Card card4;
 		private Card card5;
 		private Card card6;
+		private Button mapViewButton;
 	}
 }

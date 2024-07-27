@@ -45,6 +45,7 @@
 			picture.TabIndex = 0;
 			picture.TabStop = false;
 			picture.WaitOnLoad = true;
+			picture.Click += picture_Click;
 			// 
 			// ImageView
 			// 
@@ -60,6 +61,6 @@
 
 		#endregion
 
-		private PictureBox picture;
+		public PictureBox picture;
 	}
 }

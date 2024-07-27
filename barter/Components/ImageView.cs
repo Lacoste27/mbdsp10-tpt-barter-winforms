@@ -1,27 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
+﻿using barter.Models;
+using System;
 namespace barter.Components
 {
 	public partial class ImageView : UserControl
 	{
+		public string Filename { get; set; }
+
 		public ImageView()
 		{
 			InitializeComponent();
 		}
 
-		public ImageView(Image image)
+		public ImageView(Image image, string filename)
 		{
 			InitializeComponent();
 
 			this.picture.Image = image;
+			this.picture.SizeMode = PictureBoxSizeMode.StretchImage;
+			this.Filename = filename;
+		}
+
+		private void picture_Click(object sender, EventArgs e)
+		{
+			
 		}
 	}
 }
