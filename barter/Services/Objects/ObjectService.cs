@@ -44,7 +44,7 @@ namespace barter.Services.Objects
 			}
 		}
 
-		public async Task<Response<Models.Object>> GetUserObjects(int userId)
+		public async Task<Response<List<Models.Object>>> GetUserObjects(int userId)
 		{
 			string path = string.Format("{0}/{1}", endpoint, userId);
 
@@ -54,19 +54,19 @@ namespace barter.Services.Objects
 
 				if (response.IsSuccessStatusCode)
 				{
-					var data = await response.Content.ReadFromJsonAsync<Models.Object>();
-					return new Response<Models.Object>(Status.Success, data);
+					var data = await response.Content.ReadFromJsonAsync<List<Models.Object>>();
+					return new Response<List<Models.Object>>(Status.Success, data);
 				}
 				else
 				{
 					var errorMessage = await response.Content.ReadAsStringAsync();
-					return new Response<Models.Object>(Status.Error, null, errorMessage);
+					return new Response<List<Models.Object>>(Status.Error, null, errorMessage);
 				}
 
 			}
 			catch (Exception Exception)
 			{
-				return new Response<Models.Object>(Status.Error, null, Exception.Message);
+				return new Response<List<Models.Object>>(Status.Error, null, Exception.Message);
 			}
 		}
 

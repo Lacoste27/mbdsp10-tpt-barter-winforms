@@ -29,7 +29,7 @@
 		private void InitializeComponent()
 		{
 			pictureBox1 = new PictureBox();
-			labelTitle = new Label();
+			NameText = new Label();
 			richTextBox1 = new RichTextBox();
 			button1 = new Button();
 			((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -40,19 +40,19 @@
 			pictureBox1.Image = Properties.Resources.user;
 			pictureBox1.Location = new Point(19, 16);
 			pictureBox1.Name = "pictureBox1";
-			pictureBox1.Size = new Size(110, 97);
+			pictureBox1.Size = new Size(98, 97);
 			pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
 			pictureBox1.TabIndex = 0;
 			pictureBox1.TabStop = false;
 			// 
-			// labelTitle
+			// NameText
 			// 
-			labelTitle.AutoSize = true;
-			labelTitle.Location = new Point(160, 16);
-			labelTitle.Name = "labelTitle";
-			labelTitle.Size = new Size(29, 15);
-			labelTitle.TabIndex = 1;
-			labelTitle.Text = "Title";
+			NameText.AutoSize = true;
+			NameText.Location = new Point(160, 16);
+			NameText.Name = "NameText";
+			NameText.Size = new Size(29, 15);
+			NameText.TabIndex = 1;
+			NameText.Text = "Title";
 			// 
 			// richTextBox1
 			// 
@@ -77,11 +77,12 @@
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
+			AutoSize = true;
 			BackColor = Color.WhiteSmoke;
 			BorderStyle = BorderStyle.Fixed3D;
 			Controls.Add(button1);
 			Controls.Add(richTextBox1);
-			Controls.Add(labelTitle);
+			Controls.Add(NameText);
 			Controls.Add(pictureBox1);
 			Name = "ListView";
 			Size = new Size(845, 135);
@@ -93,7 +94,7 @@
 		#endregion
 
 		private PictureBox pictureBox1;
-		private Label labelTitle;
+		private Label NameText;
 		private RichTextBox richTextBox1;
 		private Button button1;
 	}
