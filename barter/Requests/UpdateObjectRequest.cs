@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace barter.Requests
 {
-	public class ObjectRequest
+	public class UpdateObjectRequest
 	{
-		[Required(ErrorMessage = "Name is required.", AllowEmptyStrings =false)]
+		[Required(ErrorMessage = "Name is required.", AllowEmptyStrings = false)]
 		[StringLength(50, ErrorMessage = "Name cannot be longer than 50 characters.")]
 		public required string Name { get; set; }
 		[Required(ErrorMessage = "Category is required")]
@@ -17,8 +17,6 @@ namespace barter.Requests
 		public required int CategoryId { get; set; }
 		[Required(ErrorMessage = "Description is required.", AllowEmptyStrings = false)]
 		public required string Description { get; set; }
-		[MinLength(1, ErrorMessage = "Image is required")]
-		public List<string> Image { get; set; } = new List<string>();
 		public int OwnerId { get; set; }
 	}
 }

@@ -15,6 +15,7 @@
 		private void profileButton_Click(object sender, EventArgs e)
 		{
 			this.profil1.BringToFront();
+			this.profil1.Load_Object();
 		}
 
 		private void postButton_Click(object sender, EventArgs e)

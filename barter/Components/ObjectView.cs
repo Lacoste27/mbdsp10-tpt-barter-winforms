@@ -1,4 +1,5 @@
-﻿using System;
+﻿using barter.Windows;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,7 @@ namespace barter.Components
 	public partial class ObjectView : UserControl
 	{
 		private Models.Object Object { get; set; }
+		public DetailObject details { get; set; }
 
 		public ObjectView()
 		{
@@ -23,6 +25,7 @@ namespace barter.Components
 		{
 			InitializeComponent();
 			this.Object = _Object;
+			details = new DetailObject(_Object);
 		}
 
 		private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
@@ -35,11 +38,16 @@ namespace barter.Components
 			this.nameText.Text = this.Object.Name;
 			this.categoryText.Text = this.Object.CategoryId.ToString();
 
-            foreach (var item in this.Object.Photos)
-            {
-				ImageView view = new (item);
+			foreach (var item in this.Object.Photos)
+			{
+				ImageView view = new(item);
 				this.imageLayout.Controls.Add(view);
 			}
-        }
+		}
+
+		private void imageLayout_DoubleClick(object sender, EventArgs e)
+		{
+			details.ShowDialog();
+		}
 	}
 }

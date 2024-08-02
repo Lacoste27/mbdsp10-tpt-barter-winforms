@@ -35,7 +35,8 @@
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(800, 450);
+			BackColor = Color.White;
+			ClientSize = new Size(954, 599);
 			Icon = (Icon)resources.GetObject("$this.Icon");
 			Name = "DetailPost";
 			StartPosition = FormStartPosition.CenterScreen;

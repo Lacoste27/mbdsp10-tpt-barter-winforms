@@ -108,6 +108,7 @@
 			imageLayout.Padding = new Padding(10);
 			imageLayout.Size = new Size(279, 172);
 			imageLayout.TabIndex = 0;
+			imageLayout.DoubleClick += imageLayout_DoubleClick;
 			// 
 			// ObjectView
 			// 
@@ -134,6 +135,6 @@
 		private Label label1;
 		private Label categoryText;
 		private Label label2;
-		private FlowLayoutPanel imageLayout;
+		public FlowLayoutPanel imageLayout;
 	}
 }

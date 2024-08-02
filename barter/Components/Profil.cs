@@ -8,6 +8,9 @@ namespace barter.Components
 	{
 		private ProfilModelView ProfilModelView { get;set; } = new ProfilModelView(); 
 
+		public bool loadObject { get; set; } = false;
+		public bool loadPost { get; set; } = false;
+
 		public Profil()
 		{
 			InitializeComponent();
@@ -28,28 +31,61 @@ namespace barter.Components
 
 		private async  void Profil_Load(object sender, EventArgs e)
 		{
-			Load_Object();
-		}
-
-		private async void Load_Object()
-		{
-			var objects = await ProfilModelView.GetUserObjects();
-
-			if (objects is not null)
-			{
-				objectLayout.Controls.Clear();
-
-				foreach (var obj in objects)
-				{
-					ObjectView view = new ObjectView(obj);
-					objectLayout.Controls.Add(view);
-				}
-			}
 		}
 
 		private void AddObject_Closing(object sender, CancelEventArgs e)
 		{
+			ProfilModelView.userObjectChanged = true;
 			Load_Object();
+		}
+
+		public async Task Load_Object()
+		{
+			if(ProfilModelView.UserObjects is null || ProfilModelView.userObjectChanged)
+			{
+				Loading loading = new Loading();
+				loading.Visible = true;
+
+				var objects = await Task.Run(() => ProfilModelView.GetUserObjects()).ConfigureAwait(false);
+
+				if (objects is not null)
+				{
+					objectLayout.Invoke((Action)(() =>
+					{
+						objectLayout.Controls.Clear();
+
+						foreach (var obj in objects)
+						{
+							ObjectView view = new ObjectView(obj);
+							view.details.FormClosing += OnClose;
+							objectLayout.Controls.Add(view);
+						}
+					}));
+
+					loading.Invoke((Action)(() => loading.Close()));
+				}
+
+			}
+		}
+
+		private void OnClose(object sender, CancelEventArgs e)
+		{
+			ProfilModelView.userObjectChanged = true;
+			Load_Object();
+		}
+
+
+		public async void Load_Post()
+		{
+			var posts = await ProfilModelView.GetUserPosts();
+
+			if (posts is not null)
+			{
+				foreach (var post in posts)
+				{
+					
+				}
+			}
 		}
 	}
 }
