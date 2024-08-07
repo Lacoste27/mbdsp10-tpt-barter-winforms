@@ -18,33 +18,35 @@ namespace barter.Services.Posts
 			ApiService = Service.GetService<IApiService>();
 		}
 
-		public async Task<Response<List<Post>>> GetAllPosts()
+		public async Task<Response<ListResponse<Post>>> GetAllPosts(int page = 1, int limit = 10)
 		{
+			string url = $"{endpoint}?page={page}&limit={limit}";
+
 			try
 			{
-				HttpResponseMessage response = await this.ApiService.GetClient().GetAsync(endpoint);
+				HttpResponseMessage response = await this.ApiService.GetClient().GetAsync(url);
 
 				if (response.IsSuccessStatusCode)
 				{
-					var data = await response.Content.ReadFromJsonAsync<List<Post>>();
-					return new Response<List<Post>>(Status.Success, data);
+					var data = await response.Content.ReadFromJsonAsync<ListResponse<Post>>();
+					return new Response<ListResponse<Post>>(Status.Success, data);
 				}
 				else
 				{
 					var errorMessage = await response.Content.ReadAsStringAsync();
-					return new Response<List<Post>>(Status.Error, null, errorMessage);
+					return new Response<ListResponse<Post>>(Status.Error, null, errorMessage);
 				}
 
 			}
 			catch (Exception Exception)
 			{
-				return new Response<List<Post>>(Status.Error, null, Exception.Message);
+				return new Response<ListResponse<Post>>(Status.Error, null, Exception.Message);
 			}
 		}
 
-		public async Task<Response<List<Post>>> GetUserPost(int userId)
+		public async Task<Response<ListResponse<Post>>> GetUserPost(int userId, int page = 1, int limit = 10)
 		{
-			string path = string.Format("{0}/{1}", endpoint, userId);
+			string path = string.Format("{0}/user/{1}", endpoint, userId);
 
 			try
 			{
@@ -52,19 +54,19 @@ namespace barter.Services.Posts
 
 				if (response.IsSuccessStatusCode)
 				{
-					var data = await response.Content.ReadFromJsonAsync<List<Post>>();
-					return new Response<List<Post>>(Status.Success, data);
+					var data = await response.Content.ReadFromJsonAsync<ListResponse<Post>>();
+					return new Response<ListResponse<Post>>(Status.Success, data);
 				}
 				else
 				{
 					var errorMessage = await response.Content.ReadAsStringAsync();
-					return new Response<List<Post>>(Status.Error, null, errorMessage);
+					return new Response<ListResponse<Post>>(Status.Error, null, errorMessage);
 				}
 
 			}
 			catch (Exception Exception)
 			{
-				return new Response<List<Post>>(Status.Error, null, Exception.Message);
+				return new Response<ListResponse<Post>>(Status.Error, null, Exception.Message);
 			}
 		}
 

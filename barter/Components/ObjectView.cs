@@ -1,4 +1,5 @@
-﻿using barter.Windows;
+﻿using barter.Utils;
+using barter.Windows;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,12 +37,17 @@ namespace barter.Components
 		private void ObjectView_Load(object sender, EventArgs e)
 		{
 			this.nameText.Text = this.Object.Name;
-			this.categoryText.Text = this.Object.CategoryId.ToString();
+			this.categoryText.Text = this.Object.Category.Title;
 
+			LoadImagesAsync();
+		}
+
+		private async void LoadImagesAsync()
+		{
 			foreach (var item in this.Object.Photos)
 			{
-				ImageView view = new(item);
-				this.imageLayout.Controls.Add(view);
+				ImageView view = new ImageView(item);
+				await Task.Run(() => this.imageLayout.Invoke(new Action(() => this.imageLayout.Controls.Add(view))));
 			}
 		}
 

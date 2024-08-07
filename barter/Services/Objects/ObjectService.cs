@@ -8,6 +8,7 @@ using System.Net;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 
+
 namespace barter.Services.Objects
 {
 	public class ObjectService : IObjectService
@@ -44,9 +45,9 @@ namespace barter.Services.Objects
 			}
 		}
 
-		public async Task<Response<List<Models.Object>>> GetUserObjects(int userId)
+		public async Task<Response<ListResponse<Models.Object>>> GetUserObjects(int userId, int page = 1, int limit = 10)
 		{
-			string path = string.Format("{0}/{1}", endpoint, userId);
+			string path = string.Format("{0}/owner/{1}", endpoint, userId);
 
 			try
 			{
@@ -54,19 +55,19 @@ namespace barter.Services.Objects
 
 				if (response.IsSuccessStatusCode)
 				{
-					var data = await response.Content.ReadFromJsonAsync<List<Models.Object>>();
-					return new Response<List<Models.Object>>(Status.Success, data);
+					var data = await response.Content.ReadFromJsonAsync<ListResponse<Models.Object>> ();
+					return new Response<ListResponse<Models.Object>> (Status.Success, data);
 				}
 				else
 				{
 					var errorMessage = await response.Content.ReadAsStringAsync();
-					return new Response<List<Models.Object>>(Status.Error, null, errorMessage);
+					return new Response<ListResponse<Models.Object>> (Status.Error, null, errorMessage);
 				}
 
 			}
 			catch (Exception Exception)
 			{
-				return new Response<List<Models.Object>>(Status.Error, null, Exception.Message);
+				return new Response<ListResponse<Models.Object>> (Status.Error, null, Exception.Message);
 			}
 		}
 

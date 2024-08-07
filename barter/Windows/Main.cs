@@ -14,8 +14,14 @@
 
 		private void profileButton_Click(object sender, EventArgs e)
 		{
+			if(this.profil1 is null)
+			{
+				this.profil1 = new Components.Profil();
+				this.profil1.Dock = DockStyle.Fill;
+			}
+			this.panel2.Controls.Add(this.profil1);
+
 			this.profil1.BringToFront();
-			this.profil1.Load_Object();
 		}
 
 		private void postButton_Click(object sender, EventArgs e)
@@ -37,6 +43,16 @@
 		{
 			Notification notification = new Notification();
 			notification.ShowDialog();
+		}
+
+		private void home1_Load(object sender, EventArgs e)
+		{
+
+		}
+
+		private void toolStripProgressBar1_Click(object sender, EventArgs e)
+		{
+
 		}
 	}
 }

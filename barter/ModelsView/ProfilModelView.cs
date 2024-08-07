@@ -18,6 +18,8 @@ namespace barter.ModelsView
 		private IPostService PostService { get; set; }
 
 		public List<Models.Object> UserObjects { get; private set; }
+		public List<Post> UserPosts { get; private set; }
+		public ListResponse<Models.Object> Objects { get; private set; }
 		public Boolean userObjectChanged { get; set; } = false;	
 		public Boolean userPostChanged { get; set; } = false;	
 
@@ -27,15 +29,16 @@ namespace barter.ModelsView
 			PostService = Service.GetService<IPostService>();
 		}
 
-		public async Task<List<Models.Object>> GetUserObjects()
+		public async Task<List<Models.Object>> GetUserObjects(int page = 1, int limit=10)
 		{
 			int userId = TokenStorage.GetUserId();
-			var response = await ObjectService.GetAllObjects();
+			var response = await ObjectService.GetUserObjects(userId, page, limit);
 
 			if (response.Status == Status.Success)
 			{
-				UserObjects = [.. response.Data];
-				return [.. response.Data];
+				Objects = response.Data;
+				UserObjects = [.. response.Data.Data];
+				return [.. response.Data.Data];
 			}
 			else
 			{
@@ -44,15 +47,16 @@ namespace barter.ModelsView
 			}
 		}
 
-		public async Task<List<Post>> GetUserPosts()
+		public async Task<List<Post>> GetUserPosts(int page = 1, int limit = 10)
 		{
 			int userId = TokenStorage.GetUserId();
 
-			var response = await PostService.GetUserPost(userId);
+			var response = await PostService.GetUserPost(userId,page, limit);
 
 			if (response.Status == Status.Success)
 			{
-				return [.. response.Data];
+				UserPosts = [.. response.Data.Data];
+				return [.. response.Data.Data];
 			}
 			else
 			{

@@ -169,7 +169,7 @@
 			passwordTextBox.PasswordChar = '*';
 			passwordTextBox.Size = new Size(315, 23);
 			passwordTextBox.TabIndex = 2;
-			passwordTextBox.Text = "azerty";
+			passwordTextBox.Text = "jkl;";
 			passwordTextBox.UseSystemPasswordChar = true;
 			passwordTextBox.TextChanged += passwordTextBox_TextChanged;
 			passwordTextBox.KeyDown += passwordTextBox_KeyDown;
@@ -180,7 +180,7 @@
 			usernameTextBox.Name = "usernameTextBox";
 			usernameTextBox.Size = new Size(315, 23);
 			usernameTextBox.TabIndex = 1;
-			usernameTextBox.Text = "tsiory@mail.com";
+			usernameTextBox.Text = "user@example.com";
 			// 
 			// getStartedLabel
 			// 

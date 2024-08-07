@@ -1,4 +1,5 @@
 ﻿using barter.Models;
+using barter.Utils;
 using System;
 using System.Net;
 using System.Windows.Forms;
@@ -6,7 +7,10 @@ namespace barter.Components
 {
 	public partial class ImageView : UserControl
 	{
+		private readonly ImageCache ImageCache = new ImageCache();
+
 		public string Filename { get; set; }
+
 
 		public ImageView()
 		{
@@ -25,10 +29,24 @@ namespace barter.Components
 		public ImageView(string url)
 		{
 			InitializeComponent();
+			LoadImage(url);
+		}
+
+		private void picture_Click(object sender, EventArgs e)
+		{
+			
+		}
+
+		private async void LoadImage(string url)
+		{
 			try
 			{
-				this.picture.Load(url);
-				this.picture.SizeMode = PictureBoxSizeMode.StretchImage;
+				var image = await ImageCache.GetImageAsync(url);
+				if (image != null)
+				{
+					this.picture.Image = image;
+					this.picture.SizeMode = PictureBoxSizeMode.StretchImage;
+				}
 			}
 			catch (ArgumentException ex)
 			{
@@ -36,11 +54,6 @@ namespace barter.Components
 			catch (WebException ex)
 			{
 			}
-		}
-
-		private void picture_Click(object sender, EventArgs e)
-		{
-			
 		}
 	}
 }

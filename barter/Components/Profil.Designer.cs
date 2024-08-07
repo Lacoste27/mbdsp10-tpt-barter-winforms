@@ -30,29 +30,23 @@
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Profil));
 			panel1 = new Panel();
-			panel3 = new Panel();
-			tabControl1 = new TabControl();
-			tabPage1 = new TabPage();
-			panel5 = new Panel();
-			objectLayout = new FlowLayoutPanel();
 			panel4 = new Panel();
-			addButton = new Button();
-			tabPage2 = new TabPage();
-			panel7 = new Panel();
-			panel6 = new Panel();
-			addPostButton = new Button();
-			button1 = new Button();
+			layout = new FlowLayoutPanel();
+			panel3 = new Panel();
+			progression = new ProgressBar();
+			nextButton = new Button();
+			pageNumber = new TextBox();
+			previousButton = new Button();
 			panel2 = new Panel();
+			addPostButton = new Button();
+			postButton = new Button();
+			objectButton = new Button();
 			label1 = new Label();
 			pictureBox1 = new PictureBox();
+			addObjectButton = new Button();
 			panel1.SuspendLayout();
-			panel3.SuspendLayout();
-			tabControl1.SuspendLayout();
-			tabPage1.SuspendLayout();
-			panel5.SuspendLayout();
 			panel4.SuspendLayout();
-			tabPage2.SuspendLayout();
-			panel6.SuspendLayout();
+			panel3.SuspendLayout();
 			panel2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
 			SuspendLayout();
@@ -60,6 +54,7 @@
 			// panel1
 			// 
 			panel1.BackColor = Color.White;
+			panel1.Controls.Add(panel4);
 			panel1.Controls.Add(panel3);
 			panel1.Controls.Add(panel2);
 			panel1.Dock = DockStyle.Fill;
@@ -68,149 +63,126 @@
 			panel1.Size = new Size(1192, 672);
 			panel1.TabIndex = 0;
 			// 
-			// panel3
-			// 
-			panel3.Controls.Add(tabControl1);
-			panel3.Dock = DockStyle.Fill;
-			panel3.Location = new Point(0, 165);
-			panel3.Name = "panel3";
-			panel3.Padding = new Padding(30);
-			panel3.Size = new Size(1192, 507);
-			panel3.TabIndex = 1;
-			// 
-			// tabControl1
-			// 
-			tabControl1.Controls.Add(tabPage1);
-			tabControl1.Controls.Add(tabPage2);
-			tabControl1.Dock = DockStyle.Fill;
-			tabControl1.ItemSize = new Size(80, 40);
-			tabControl1.Location = new Point(30, 30);
-			tabControl1.Margin = new Padding(10);
-			tabControl1.Name = "tabControl1";
-			tabControl1.SelectedIndex = 0;
-			tabControl1.Size = new Size(1132, 447);
-			tabControl1.TabIndex = 0;
-			// 
-			// tabPage1
-			// 
-			tabPage1.BackColor = Color.White;
-			tabPage1.Controls.Add(panel5);
-			tabPage1.Controls.Add(panel4);
-			tabPage1.Location = new Point(4, 44);
-			tabPage1.Name = "tabPage1";
-			tabPage1.Padding = new Padding(3);
-			tabPage1.Size = new Size(1124, 399);
-			tabPage1.TabIndex = 0;
-			tabPage1.Text = "Objects";
-			// 
-			// panel5
-			// 
-			panel5.Controls.Add(objectLayout);
-			panel5.Dock = DockStyle.Fill;
-			panel5.Location = new Point(3, 57);
-			panel5.Name = "panel5";
-			panel5.Size = new Size(1118, 339);
-			panel5.TabIndex = 1;
-			// 
-			// objectLayout
-			// 
-			objectLayout.AutoScroll = true;
-			objectLayout.Dock = DockStyle.Fill;
-			objectLayout.Location = new Point(0, 0);
-			objectLayout.Name = "objectLayout";
-			objectLayout.Padding = new Padding(10);
-			objectLayout.Size = new Size(1118, 339);
-			objectLayout.TabIndex = 0;
-			// 
 			// panel4
 			// 
-			panel4.Controls.Add(addButton);
-			panel4.Dock = DockStyle.Top;
-			panel4.Location = new Point(3, 3);
+			panel4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+			panel4.Controls.Add(layout);
+			panel4.Location = new Point(0, 219);
 			panel4.Name = "panel4";
-			panel4.Size = new Size(1118, 54);
-			panel4.TabIndex = 0;
+			panel4.Padding = new Padding(30);
+			panel4.Size = new Size(1192, 418);
+			panel4.TabIndex = 2;
 			// 
-			// addButton
+			// layout
 			// 
-			addButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-			addButton.Image = (Image)resources.GetObject("addButton.Image");
-			addButton.ImageAlign = ContentAlignment.MiddleLeft;
-			addButton.Location = new Point(1040, 15);
-			addButton.Name = "addButton";
-			addButton.Size = new Size(60, 23);
-			addButton.TabIndex = 0;
-			addButton.Text = "New";
-			addButton.TextAlign = ContentAlignment.MiddleRight;
-			addButton.UseVisualStyleBackColor = true;
-			addButton.Click += addButton_Click;
+			layout.AutoScroll = true;
+			layout.Dock = DockStyle.Fill;
+			layout.Location = new Point(30, 30);
+			layout.Name = "layout";
+			layout.Size = new Size(1132, 358);
+			layout.TabIndex = 0;
 			// 
-			// tabPage2
+			// panel3
 			// 
-			tabPage2.BackColor = Color.White;
-			tabPage2.Controls.Add(panel7);
-			tabPage2.Controls.Add(panel6);
-			tabPage2.Location = new Point(4, 44);
-			tabPage2.Name = "tabPage2";
-			tabPage2.Padding = new Padding(3);
-			tabPage2.Size = new Size(1124, 399);
-			tabPage2.TabIndex = 1;
-			tabPage2.Text = "Posts";
+			panel3.Controls.Add(progression);
+			panel3.Controls.Add(nextButton);
+			panel3.Controls.Add(pageNumber);
+			panel3.Controls.Add(previousButton);
+			panel3.Dock = DockStyle.Bottom;
+			panel3.Location = new Point(0, 637);
+			panel3.Name = "panel3";
+			panel3.Size = new Size(1192, 35);
+			panel3.TabIndex = 1;
 			// 
-			// panel7
+			// progression
 			// 
-			panel7.Dock = DockStyle.Fill;
-			panel7.Location = new Point(3, 57);
-			panel7.Name = "panel7";
-			panel7.Size = new Size(1118, 339);
-			panel7.TabIndex = 2;
+			progression.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+			progression.Location = new Point(769, 6);
+			progression.MarqueeAnimationSpeed = 40;
+			progression.Name = "progression";
+			progression.Size = new Size(393, 23);
+			progression.Style = ProgressBarStyle.Marquee;
+			progression.TabIndex = 3;
+			progression.Visible = false;
 			// 
-			// panel6
+			// nextButton
 			// 
-			panel6.Controls.Add(addPostButton);
-			panel6.Controls.Add(button1);
-			panel6.Dock = DockStyle.Top;
-			panel6.Location = new Point(3, 3);
-			panel6.Name = "panel6";
-			panel6.Size = new Size(1118, 54);
-			panel6.TabIndex = 1;
+			nextButton.Location = new Point(79, 6);
+			nextButton.Name = "nextButton";
+			nextButton.Size = new Size(22, 23);
+			nextButton.TabIndex = 2;
+			nextButton.Text = ">";
+			nextButton.UseVisualStyleBackColor = true;
+			nextButton.Click += nextButton_Click;
+			// 
+			// pageNumber
+			// 
+			pageNumber.Location = new Point(40, 6);
+			pageNumber.Name = "pageNumber";
+			pageNumber.Size = new Size(33, 23);
+			pageNumber.TabIndex = 1;
+			pageNumber.TextChanged += pageNumber_TextChanged;
+			// 
+			// previousButton
+			// 
+			previousButton.Location = new Point(12, 6);
+			previousButton.Name = "previousButton";
+			previousButton.Size = new Size(22, 23);
+			previousButton.TabIndex = 0;
+			previousButton.Text = "<";
+			previousButton.UseVisualStyleBackColor = true;
+			previousButton.Click += previousButton_Click;
+			// 
+			// panel2
+			// 
+			panel2.Controls.Add(postButton);
+			panel2.Controls.Add(objectButton);
+			panel2.Controls.Add(label1);
+			panel2.Controls.Add(pictureBox1);
+			panel2.Controls.Add(addObjectButton);
+			panel2.Controls.Add(addPostButton);
+			panel2.Dock = DockStyle.Top;
+			panel2.Location = new Point(0, 0);
+			panel2.Name = "panel2";
+			panel2.Size = new Size(1192, 219);
+			panel2.TabIndex = 0;
+			panel2.Paint += panel2_Paint;
 			// 
 			// addPostButton
 			// 
 			addPostButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
 			addPostButton.Image = (Image)resources.GetObject("addPostButton.Image");
 			addPostButton.ImageAlign = ContentAlignment.MiddleLeft;
-			addPostButton.Location = new Point(1040, 15);
+			addPostButton.Location = new Point(1087, 178);
 			addPostButton.Name = "addPostButton";
-			addPostButton.Size = new Size(60, 23);
-			addPostButton.TabIndex = 1;
-			addPostButton.Text = "New";
+			addPostButton.Size = new Size(91, 23);
+			addPostButton.TabIndex = 4;
+			addPostButton.Text = "Add post";
 			addPostButton.TextAlign = ContentAlignment.MiddleRight;
 			addPostButton.UseVisualStyleBackColor = true;
+			addPostButton.Visible = false;
 			addPostButton.Click += addPostButton_Click;
 			// 
-			// button1
+			// postButton
 			// 
-			button1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-			button1.Image = (Image)resources.GetObject("button1.Image");
-			button1.ImageAlign = ContentAlignment.MiddleLeft;
-			button1.Location = new Point(1958, 15);
-			button1.Name = "button1";
-			button1.Size = new Size(60, 23);
-			button1.TabIndex = 0;
-			button1.Text = "New";
-			button1.TextAlign = ContentAlignment.MiddleRight;
-			button1.UseVisualStyleBackColor = true;
+			postButton.Location = new Point(188, 174);
+			postButton.Name = "postButton";
+			postButton.Size = new Size(83, 30);
+			postButton.TabIndex = 3;
+			postButton.Text = "Posts";
+			postButton.UseVisualStyleBackColor = true;
+			postButton.Click += postButton_Click;
 			// 
-			// panel2
+			// objectButton
 			// 
-			panel2.Controls.Add(label1);
-			panel2.Controls.Add(pictureBox1);
-			panel2.Dock = DockStyle.Top;
-			panel2.Location = new Point(0, 0);
-			panel2.Name = "panel2";
-			panel2.Size = new Size(1192, 165);
-			panel2.TabIndex = 0;
+			objectButton.FlatStyle = FlatStyle.System;
+			objectButton.Location = new Point(99, 174);
+			objectButton.Name = "objectButton";
+			objectButton.Size = new Size(83, 30);
+			objectButton.TabIndex = 2;
+			objectButton.Text = "Objects";
+			objectButton.UseVisualStyleBackColor = true;
+			objectButton.Click += objectButton_Click;
 			// 
 			// label1
 			// 
@@ -231,22 +203,34 @@
 			pictureBox1.TabIndex = 0;
 			pictureBox1.TabStop = false;
 			// 
+			// addObjectButton
+			// 
+			addObjectButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+			addObjectButton.Image = (Image)resources.GetObject("addObjectButton.Image");
+			addObjectButton.ImageAlign = ContentAlignment.MiddleLeft;
+			addObjectButton.Location = new Point(1087, 178);
+			addObjectButton.Name = "addObjectButton";
+			addObjectButton.Size = new Size(91, 23);
+			addObjectButton.TabIndex = 5;
+			addObjectButton.Text = "Add object";
+			addObjectButton.TextAlign = ContentAlignment.MiddleRight;
+			addObjectButton.UseVisualStyleBackColor = true;
+			addObjectButton.Visible = false;
+			addObjectButton.Click += addObjectButton_Click;
+			// 
 			// Profil
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
+			AutoSize = true;
 			Controls.Add(panel1);
 			Name = "Profil";
 			Size = new Size(1192, 672);
 			Load += Profil_Load;
 			panel1.ResumeLayout(false);
-			panel3.ResumeLayout(false);
-			tabControl1.ResumeLayout(false);
-			tabPage1.ResumeLayout(false);
-			panel5.ResumeLayout(false);
 			panel4.ResumeLayout(false);
-			tabPage2.ResumeLayout(false);
-			panel6.ResumeLayout(false);
+			panel3.ResumeLayout(false);
+			panel3.PerformLayout();
 			panel2.ResumeLayout(false);
 			panel2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -256,20 +240,19 @@
 		#endregion
 
 		private Panel panel1;
-		private Panel panel3;
 		private Panel panel2;
-		private TabControl tabControl1;
-		private TabPage tabPage1;
-		private TabPage tabPage2;
 		private PictureBox pictureBox1;
 		private Label label1;
+		private Button postButton;
+		private Button objectButton;
 		private Panel panel4;
-		private Panel panel5;
-		private Button addButton;
-		private Panel panel6;
-		private Button button1;
-		private Panel panel7;
+		private FlowLayoutPanel layout;
+		private Panel panel3;
+		private Button previousButton;
+		private TextBox pageNumber;
+		private Button nextButton;
+		private ProgressBar progression;
 		private Button addPostButton;
-		private FlowLayoutPanel objectLayout;
+		private Button addObjectButton;
 	}
 }

@@ -36,10 +36,9 @@
 			postButton = new Button();
 			accueilButton = new PictureBox();
 			panel2 = new Panel();
-			posts1 = new Components.Posts();
 			home1 = new Components.Home();
-			profil1 = new Components.Profil();
 			messages1 = new Components.Messages();
+			posts1 = new Components.Posts();
 			panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)profileButton).BeginInit();
 			((System.ComponentModel.ISupportInitialize)accueilButton).BeginInit();
@@ -120,6 +119,7 @@
 			postButton.Text = "Post";
 			postButton.TextAlign = ContentAlignment.BottomCenter;
 			postButton.UseVisualStyleBackColor = true;
+			postButton.Visible = false;
 			postButton.Click += postButton_Click;
 			// 
 			// accueilButton
@@ -136,15 +136,32 @@
 			// 
 			// panel2
 			// 
-			panel2.Controls.Add(posts1);
 			panel2.Controls.Add(home1);
-			panel2.Controls.Add(profil1);
 			panel2.Controls.Add(messages1);
+			panel2.Controls.Add(posts1);
 			panel2.Dock = DockStyle.Fill;
 			panel2.Location = new Point(131, 0);
 			panel2.Name = "panel2";
 			panel2.Size = new Size(1033, 667);
 			panel2.TabIndex = 1;
+			// 
+			// home1
+			// 
+			home1.BackColor = Color.White;
+			home1.Dock = DockStyle.Fill;
+			home1.Location = new Point(0, 0);
+			home1.Name = "home1";
+			home1.Size = new Size(1033, 667);
+			home1.TabIndex = 1;
+			home1.Load += home1_Load;
+			// 
+			// messages1
+			// 
+			messages1.Dock = DockStyle.Fill;
+			messages1.Location = new Point(0, 0);
+			messages1.Name = "messages1";
+			messages1.Size = new Size(1033, 667);
+			messages1.TabIndex = 2;
 			// 
 			// posts1
 			// 
@@ -154,30 +171,6 @@
 			posts1.Name = "posts1";
 			posts1.Size = new Size(1033, 667);
 			posts1.TabIndex = 3;
-			// 
-			// home1
-			// 
-			home1.Dock = DockStyle.Fill;
-			home1.Location = new Point(0, 0);
-			home1.Name = "home1";
-			home1.Size = new Size(1033, 667);
-			home1.TabIndex = 1;
-			// 
-			// profil1
-			// 
-			profil1.Dock = DockStyle.Fill;
-			profil1.Location = new Point(0, 0);
-			profil1.Name = "profil1";
-			profil1.Size = new Size(1033, 667);
-			profil1.TabIndex = 0;
-			// 
-			// messages1
-			// 
-			messages1.Dock = DockStyle.Fill;
-			messages1.Location = new Point(0, 0);
-			messages1.Name = "messages1";
-			messages1.Size = new Size(1033, 667);
-			messages1.TabIndex = 2;
 			// 
 			// Main
 			// 
@@ -212,5 +205,7 @@
 		private Components.Messages messages1;
 		private Components.Posts posts1;
 		private Button notificationButton;
+		private StatusStrip statusStrip1;
+		private ToolStripProgressBar toolStripProgressBar1;
 	}
 }

@@ -61,8 +61,8 @@
 			// splitContainer1.Panel2
 			// 
 			splitContainer1.Panel2.Controls.Add(imageLayout);
-			splitContainer1.Size = new Size(501, 503);
-			splitContainer1.SplitterDistance = 297;
+			splitContainer1.Size = new Size(484, 573);
+			splitContainer1.SplitterDistance = 302;
 			splitContainer1.TabIndex = 0;
 			// 
 			// panel1
@@ -77,7 +77,7 @@
 			panel1.Dock = DockStyle.Fill;
 			panel1.Location = new Point(0, 0);
 			panel1.Name = "panel1";
-			panel1.Size = new Size(501, 297);
+			panel1.Size = new Size(484, 302);
 			panel1.TabIndex = 0;
 			// 
 			// saveButton
@@ -85,7 +85,7 @@
 			saveButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
 			saveButton.Image = Properties.Resources.save;
 			saveButton.ImageAlign = ContentAlignment.MiddleLeft;
-			saveButton.Location = new Point(368, 257);
+			saveButton.Location = new Point(368, 256);
 			saveButton.Name = "saveButton";
 			saveButton.Size = new Size(65, 28);
 			saveButton.TabIndex = 6;
@@ -146,22 +146,23 @@
 			// 
 			// imageLayout
 			// 
+			imageLayout.AutoScroll = true;
 			imageLayout.Dock = DockStyle.Fill;
 			imageLayout.Location = new Point(0, 0);
 			imageLayout.Name = "imageLayout";
 			imageLayout.Padding = new Padding(10);
-			imageLayout.Size = new Size(501, 202);
+			imageLayout.Size = new Size(484, 267);
 			imageLayout.TabIndex = 0;
 			// 
 			// DetailObject
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(501, 503);
+			ClientSize = new Size(484, 573);
 			Controls.Add(splitContainer1);
 			Icon = (Icon)resources.GetObject("$this.Icon");
-			MaximumSize = new Size(517, 542);
-			MinimumSize = new Size(517, 542);
+			MaximumSize = new Size(500, 612);
+			MinimumSize = new Size(500, 612);
 			Name = "DetailObject";
 			StartPosition = FormStartPosition.CenterScreen;
 			Text = "Object detail";
