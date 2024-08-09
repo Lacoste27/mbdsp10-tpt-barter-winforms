@@ -2,15 +2,6 @@
 using barter.ModelsView;
 using barter.Requests;
 using barter.Utils;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace barter.Windows
 {
@@ -52,7 +43,6 @@ namespace barter.Windows
 				MessageBox.Show("Object updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				Close();
 			}
-
 		}
 
 		private async void DetailObject_Load(object sender, EventArgs e)

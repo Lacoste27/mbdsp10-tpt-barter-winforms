@@ -1,14 +1,6 @@
-﻿using barter.Models;
-using barter.ModelsView;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using barter.ModelsView;
+using barter.Utils;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace barter.Windows
 {
@@ -24,7 +16,7 @@ namespace barter.Windows
 
 		private async void saveButton_Click(object sender, EventArgs e)
 		{
-			int authodId = 1;
+			int authodId = TokenStorage.GetUserId();
 			String description = descriptionText.Text;
 			List<int> objectIds = new List<int>();
 
@@ -33,11 +25,10 @@ namespace barter.Windows
 				dynamic data = item;
 				Models.Object _objects = this.addPostModelView.UserObjects.Where(post => post.Id == data.Value).FirstOrDefault();
 
-				if(_objects is not null)
+				if (_objects is not null)
 				{
 					objectIds.Add(data.Value);
 				}
-
 			}
 
 
@@ -63,14 +54,14 @@ namespace barter.Windows
 				{
 					objectCheckList.Invoke(new Action(() =>
 					{
-						objectCheckList.Items.Clear(); 
+						objectCheckList.Items.Clear();
 
 						foreach (var item in objects)
 						{
 							objectCheckList.DisplayMember = "Text";
 							objectCheckList.ValueMember = "Value";
 
-							objectCheckList.Items.Insert(0, new {Text=item.Name, Value=item.Id});
+							objectCheckList.Items.Insert(0, new { Text = item.Name, Value = item.Id });
 							objectCheckList.Tag = item.Id;
 						}
 

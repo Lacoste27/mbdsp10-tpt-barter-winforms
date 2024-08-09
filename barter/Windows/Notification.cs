@@ -1,9 +1,5 @@
 ﻿using barter.Components;
-using barter.Models;
 using barter.ModelsView;
-using barter.Services.Categories;
-using barter.Services.Notifications;
-using barter.Services.Objects;
 
 namespace barter.Windows
 {

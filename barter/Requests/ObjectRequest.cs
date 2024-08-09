@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace barter.Requests
 {
 	public class ObjectRequest
 	{
-		[Required(ErrorMessage = "Name is required.", AllowEmptyStrings =false)]
+		[Required(ErrorMessage = "Name is required.", AllowEmptyStrings = false)]
 		[StringLength(50, ErrorMessage = "Name cannot be longer than 50 characters.")]
 		public required string Name { get; set; }
 		[Required(ErrorMessage = "Category is required")]

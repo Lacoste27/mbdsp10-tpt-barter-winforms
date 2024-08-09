@@ -1,5 +1,4 @@
 ﻿using barter.Exceptions;
-using barter.Models;
 using barter.Utils;
 using System.Net.Http.Headers;
 
@@ -25,9 +24,9 @@ namespace barter.Services.Api
 			{
 				string token = TokenStorage.LoadToken() ?? throw new UnauhtorizedException("Token is not specified");
 
-				KeyValuePair<string, IEnumerable<string>> _token =  Client.DefaultRequestHeaders.Where(x => x.Key == "x-auth-token").FirstOrDefault();
+				KeyValuePair<string, IEnumerable<string>> _token = Client.DefaultRequestHeaders.Where(x => x.Key == "x-auth-token").FirstOrDefault();
 
-				if(_token.Key is null)
+				if (_token.Key is null)
 				{
 					Client.DefaultRequestHeaders.Add("x-auth-token", token);
 				}

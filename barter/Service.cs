@@ -6,6 +6,7 @@ using barter.Services.Notifications;
 using barter.Services.Objects;
 using barter.Services.Posts;
 using barter.Services.Reports;
+using barter.Services.Suggestions;
 using barter.Services.Users;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -20,6 +21,7 @@ namespace barter
 			var services = new ServiceCollection();
 
 			services.AddScoped<ICategoryService, CategoryService>();
+			services.AddScoped<ISuggestionService, SuggestionService>();
 			services.AddScoped<IMessageService, MessageService>();
 			services.AddScoped<INotificationService, NotificationService>();
 			services.AddScoped<IObjectService, ObjectService>();

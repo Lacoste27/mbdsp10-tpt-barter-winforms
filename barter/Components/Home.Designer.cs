@@ -33,12 +33,12 @@
 			mapViewButton = new Button();
 			label1 = new Label();
 			panel2 = new Panel();
-			panel3 = new Panel();
-			layout = new FlowLayoutPanel();
+			progression = new ProgressBar();
 			nextButton = new Button();
 			pageNumber = new TextBox();
 			previousButton = new Button();
-			progression = new ProgressBar();
+			panel3 = new Panel();
+			layout = new FlowLayoutPanel();
 			panel1.SuspendLayout();
 			panel2.SuspendLayout();
 			panel3.SuspendLayout();
@@ -89,23 +89,16 @@
 			panel2.Size = new Size(1176, 35);
 			panel2.TabIndex = 1;
 			// 
-			// panel3
+			// progression
 			// 
-			panel3.Controls.Add(layout);
-			panel3.Dock = DockStyle.Fill;
-			panel3.Location = new Point(0, 53);
-			panel3.Name = "panel3";
-			panel3.Size = new Size(1176, 530);
-			panel3.TabIndex = 2;
-			// 
-			// layout
-			// 
-			layout.Dock = DockStyle.Fill;
-			layout.Location = new Point(0, 0);
-			layout.Name = "layout";
-			layout.Padding = new Padding(10);
-			layout.Size = new Size(1176, 530);
-			layout.TabIndex = 2;
+			progression.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+			progression.Location = new Point(753, 6);
+			progression.MarqueeAnimationSpeed = 40;
+			progression.Name = "progression";
+			progression.Size = new Size(393, 23);
+			progression.Style = ProgressBarStyle.Marquee;
+			progression.TabIndex = 6;
+			progression.Visible = false;
 			// 
 			// nextButton
 			// 
@@ -132,16 +125,24 @@
 			previousButton.Text = "<";
 			previousButton.UseVisualStyleBackColor = true;
 			// 
-			// progression
+			// panel3
 			// 
-			progression.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-			progression.Location = new Point(753, 6);
-			progression.MarqueeAnimationSpeed = 40;
-			progression.Name = "progression";
-			progression.Size = new Size(393, 23);
-			progression.Style = ProgressBarStyle.Marquee;
-			progression.TabIndex = 6;
-			progression.Visible = false;
+			panel3.Controls.Add(layout);
+			panel3.Dock = DockStyle.Fill;
+			panel3.Location = new Point(0, 53);
+			panel3.Name = "panel3";
+			panel3.Size = new Size(1176, 530);
+			panel3.TabIndex = 2;
+			// 
+			// layout
+			// 
+			layout.AutoScroll = true;
+			layout.Dock = DockStyle.Fill;
+			layout.Location = new Point(0, 0);
+			layout.Name = "layout";
+			layout.Padding = new Padding(10);
+			layout.Size = new Size(1176, 530);
+			layout.TabIndex = 2;
 			// 
 			// Home
 			// 

@@ -14,11 +14,11 @@
 		public DateTime Timestamp { get; set; }
 	}
 
-    public class  UserMessage
-    {
-        public int Id { get; set; }
+	public class UserMessage
+	{
+		public int Id { get; set; }
 		public String Name { get; set; }
 		public String Username { get; set; }
 		public String Email { get; set; }
-    }
+	}
 }

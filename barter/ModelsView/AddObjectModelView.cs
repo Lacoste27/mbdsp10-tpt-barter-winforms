@@ -3,13 +3,7 @@ using barter.Requests;
 using barter.Responses;
 using barter.Services.Categories;
 using barter.Services.Objects;
-using Microsoft.VisualBasic.ApplicationServices;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace barter.ModelsView
 {
@@ -25,7 +19,7 @@ namespace barter.ModelsView
 			CategoryService = Service.GetService<ICategoryService>();
 		}
 
-		public async Task<Models.Object> AddObject(ObjectRequest request )
+		public async Task<Models.Object> AddObject(ObjectRequest request)
 		{
 			var validationResults = new List<ValidationResult>();
 			var validationContext = new ValidationContext(request);
@@ -61,8 +55,8 @@ namespace barter.ModelsView
 			{
 				var categories = response.Data;
 
-                foreach (Category category in categories)
-                {
+				foreach (Category category in categories)
+				{
 					int Id = category.Id;
 					string Title = category.Title;
 

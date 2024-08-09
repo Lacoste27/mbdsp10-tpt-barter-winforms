@@ -1,10 +1,6 @@
-﻿using barter.Models;
-using barter.Requests;
+﻿using barter.Requests;
 using barter.Responses;
 using barter.Services.Api;
-using Microsoft.VisualBasic.ApplicationServices;
-using Newtonsoft.Json;
-using System.Net;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 
@@ -55,19 +51,19 @@ namespace barter.Services.Objects
 
 				if (response.IsSuccessStatusCode)
 				{
-					var data = await response.Content.ReadFromJsonAsync<ListResponse<Models.Object>> ();
-					return new Response<ListResponse<Models.Object>> (Status.Success, data);
+					var data = await response.Content.ReadFromJsonAsync<ListResponse<Models.Object>>();
+					return new Response<ListResponse<Models.Object>>(Status.Success, data);
 				}
 				else
 				{
 					var errorMessage = await response.Content.ReadAsStringAsync();
-					return new Response<ListResponse<Models.Object>> (Status.Error, null, errorMessage);
+					return new Response<ListResponse<Models.Object>>(Status.Error, null, errorMessage);
 				}
 
 			}
 			catch (Exception Exception)
 			{
-				return new Response<ListResponse<Models.Object>> (Status.Error, null, Exception.Message);
+				return new Response<ListResponse<Models.Object>>(Status.Error, null, Exception.Message);
 			}
 		}
 
@@ -103,14 +99,14 @@ namespace barter.Services.Objects
 			{
 				using var form = new MultipartFormDataContent();
 
-                foreach (string image in request.Image)
-                {
+				foreach (string image in request.Image)
+				{
 					var fileContent = new ByteArrayContent(await File.ReadAllBytesAsync(image));
 					fileContent.Headers.ContentType = MediaTypeHeaderValue.Parse("multipart/form-data");
 
 					form.Add(fileContent, "files", Path.GetFileName(image));
 				}
-              
+
 				form.Add(new StringContent(request.Name), "name");
 				form.Add(new StringContent(request.CategoryId.ToString()), "categoryId");
 				form.Add(new StringContent(request.Description), "description");

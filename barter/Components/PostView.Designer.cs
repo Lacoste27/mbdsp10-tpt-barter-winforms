@@ -28,10 +28,11 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			ListViewItem listViewItem1 = new ListViewItem(new string[] { "", "", "", "", "", "" }, -1);
 			pictureBox1 = new PictureBox();
-			label1 = new Label();
-			listView1 = new System.Windows.Forms.ListView();
+			usernameText = new Label();
+			objectList = new CheckedListBox();
+			publishDate = new Label();
+			detailButton = new Button();
 			((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
 			SuspendLayout();
 			// 
@@ -45,24 +46,45 @@
 			pictureBox1.TabIndex = 0;
 			pictureBox1.TabStop = false;
 			// 
-			// label1
+			// usernameText
 			// 
-			label1.AutoSize = true;
-			label1.Location = new Point(120, 59);
-			label1.Name = "label1";
-			label1.Size = new Size(38, 15);
-			label1.TabIndex = 1;
-			label1.Text = "label1";
+			usernameText.AutoSize = true;
+			usernameText.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+			usernameText.Location = new Point(117, 54);
+			usernameText.Name = "usernameText";
+			usernameText.Size = new Size(57, 21);
+			usernameText.TabIndex = 1;
+			usernameText.Text = "label1";
+			usernameText.Click += usernameText_Click;
 			// 
-			// listView1
+			// objectList
 			// 
-			listView1.Items.AddRange(new ListViewItem[] { listViewItem1 });
-			listView1.Location = new Point(28, 151);
-			listView1.Name = "listView1";
-			listView1.Size = new Size(343, 157);
-			listView1.TabIndex = 2;
-			listView1.UseCompatibleStateImageBehavior = false;
-			listView1.View = View.SmallIcon;
+			objectList.FormattingEnabled = true;
+			objectList.Location = new Point(28, 132);
+			objectList.MultiColumn = true;
+			objectList.Name = "objectList";
+			objectList.ScrollAlwaysVisible = true;
+			objectList.Size = new Size(340, 166);
+			objectList.TabIndex = 2;
+			// 
+			// publishDate
+			// 
+			publishDate.AutoSize = true;
+			publishDate.Location = new Point(28, 313);
+			publishDate.Name = "publishDate";
+			publishDate.Size = new Size(66, 15);
+			publishDate.TabIndex = 3;
+			publishDate.Text = "7 years ago";
+			// 
+			// detailButton
+			// 
+			detailButton.Location = new Point(293, 55);
+			detailButton.Name = "detailButton";
+			detailButton.Size = new Size(75, 23);
+			detailButton.TabIndex = 4;
+			detailButton.Text = "Detail";
+			detailButton.UseVisualStyleBackColor = true;
+			detailButton.Click += button1_Click;
 			// 
 			// PostView
 			// 
@@ -70,13 +92,16 @@
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.White;
 			BorderStyle = BorderStyle.Fixed3D;
-			Controls.Add(listView1);
-			Controls.Add(label1);
+			Controls.Add(detailButton);
+			Controls.Add(publishDate);
+			Controls.Add(objectList);
+			Controls.Add(usernameText);
 			Controls.Add(pictureBox1);
 			MaximumSize = new Size(404, 342);
 			MinimumSize = new Size(404, 342);
 			Name = "PostView";
 			Size = new Size(400, 338);
+			Load += PostView_Load;
 			((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
 			ResumeLayout(false);
 			PerformLayout();
@@ -85,7 +110,9 @@
 		#endregion
 
 		private PictureBox pictureBox1;
-		private Label label1;
-		private System.Windows.Forms.ListView listView1;
+		private Label usernameText;
+		private CheckedListBox objectList;
+		private Label publishDate;
+		private Button detailButton;
 	}
 }

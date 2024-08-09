@@ -1,8 +1,5 @@
-﻿using barter.Models;
-using barter.Utils;
-using System;
+﻿using barter.Utils;
 using System.Net;
-using System.Windows.Forms;
 namespace barter.Components
 {
 	public partial class ImageView : UserControl
@@ -34,7 +31,7 @@ namespace barter.Components
 
 		private void picture_Click(object sender, EventArgs e)
 		{
-			
+
 		}
 
 		private async void LoadImage(string url)

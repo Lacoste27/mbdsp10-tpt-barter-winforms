@@ -22,36 +22,47 @@ namespace barter.Components
 
 		public async void Load_Post()
 		{
-			var posts = await HomeModelView.GetPosts().ConfigureAwait(false);
-
-			if (posts is not null)
+			try
 			{
-				this.Invoke((MethodInvoker)delegate
+				var posts = await HomeModelView.GetPosts().ConfigureAwait(false);
+
+				if (posts is not null)
 				{
-					layout.SuspendLayout();
-					layout.Controls.Clear();
-					progression.Visible = true;
-				});
+					this.Invoke((MethodInvoker)delegate
+					{
+						layout.SuspendLayout();
+						layout.Controls.Clear();
+						progression.Visible = true;
+					});
 
-				List<PostView> controlsToAdd = new List<PostView>();
+					List<PostView> controlsToAdd = new List<PostView>();
 
-				foreach (var post in posts)
-				{
-					PostView view = new PostView(post);
-					view.Margin = new Padding(0, 0, 20,20);
+					foreach (var post in posts)
+					{
+						PostView view = new PostView(post);
+						view.Margin = new Padding(0, 0, 20, 30);
 
-					controlsToAdd.Add(view);
+						controlsToAdd.Add(view);
+					}
+
+					this.Invoke((MethodInvoker)delegate
+					{
+						layout.Controls.AddRange(controlsToAdd.ToArray());
+						layout.ResumeLayout(true);
+						progression.Visible = false;
+					});
+
+					DoubleBuffered = true;
 				}
-
-				this.Invoke((MethodInvoker)delegate
-				{
-					layout.Controls.AddRange(controlsToAdd.ToArray());
-					layout.ResumeLayout(true);
-					progression.Visible = false;
-				});
-
-				DoubleBuffered = true;
 			}
+			catch (Exception Exception)
+			{
+				MessageBox.Show($"Une erreur est survenue lors du chargement des données: {Exception.Message}");
+			}
+			finally
+			{
+			}
+
 		}
 
 		private void postLayout_Paint(object sender, PaintEventArgs e)

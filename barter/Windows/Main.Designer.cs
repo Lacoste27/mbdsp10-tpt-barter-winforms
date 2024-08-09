@@ -30,13 +30,13 @@
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
 			panel1 = new Panel();
+			suggestionButton = new Button();
 			notificationButton = new Button();
 			profileButton = new PictureBox();
 			messageButton = new Button();
 			postButton = new Button();
 			accueilButton = new PictureBox();
 			panel2 = new Panel();
-			home1 = new Components.Home();
 			messages1 = new Components.Messages();
 			posts1 = new Components.Posts();
 			panel1.SuspendLayout();
@@ -48,6 +48,7 @@
 			// panel1
 			// 
 			panel1.BackColor = Color.WhiteSmoke;
+			panel1.Controls.Add(suggestionButton);
 			panel1.Controls.Add(notificationButton);
 			panel1.Controls.Add(profileButton);
 			panel1.Controls.Add(messageButton);
@@ -57,8 +58,24 @@
 			panel1.Location = new Point(0, 0);
 			panel1.MinimumSize = new Size(131, 667);
 			panel1.Name = "panel1";
-			panel1.Size = new Size(131, 667);
+			panel1.Size = new Size(131, 765);
 			panel1.TabIndex = 0;
+			// 
+			// suggestionButton
+			// 
+			suggestionButton.FlatAppearance.BorderSize = 0;
+			suggestionButton.FlatStyle = FlatStyle.Flat;
+			suggestionButton.Font = new Font("Tahoma", 14F);
+			suggestionButton.Image = Properties.Resources.notification;
+			suggestionButton.ImageAlign = ContentAlignment.TopCenter;
+			suggestionButton.Location = new Point(3, 462);
+			suggestionButton.Name = "suggestionButton";
+			suggestionButton.Size = new Size(122, 71);
+			suggestionButton.TabIndex = 6;
+			suggestionButton.Text = "Suggestion";
+			suggestionButton.TextAlign = ContentAlignment.BottomCenter;
+			suggestionButton.UseVisualStyleBackColor = true;
+			suggestionButton.Click += suggestionButton_Click;
 			// 
 			// notificationButton
 			// 
@@ -80,7 +97,7 @@
 			// 
 			profileButton.Anchor = AnchorStyles.Bottom;
 			profileButton.Image = Properties.Resources.user;
-			profileButton.Location = new Point(42, 607);
+			profileButton.Location = new Point(42, 705);
 			profileButton.Name = "profileButton";
 			profileButton.Size = new Size(48, 48);
 			profileButton.SizeMode = PictureBoxSizeMode.CenterImage;
@@ -136,31 +153,20 @@
 			// 
 			// panel2
 			// 
-			panel2.Controls.Add(home1);
 			panel2.Controls.Add(messages1);
 			panel2.Controls.Add(posts1);
 			panel2.Dock = DockStyle.Fill;
 			panel2.Location = new Point(131, 0);
 			panel2.Name = "panel2";
-			panel2.Size = new Size(1033, 667);
+			panel2.Size = new Size(1090, 765);
 			panel2.TabIndex = 1;
-			// 
-			// home1
-			// 
-			home1.BackColor = Color.White;
-			home1.Dock = DockStyle.Fill;
-			home1.Location = new Point(0, 0);
-			home1.Name = "home1";
-			home1.Size = new Size(1033, 667);
-			home1.TabIndex = 1;
-			home1.Load += home1_Load;
 			// 
 			// messages1
 			// 
 			messages1.Dock = DockStyle.Fill;
 			messages1.Location = new Point(0, 0);
 			messages1.Name = "messages1";
-			messages1.Size = new Size(1033, 667);
+			messages1.Size = new Size(1090, 765);
 			messages1.TabIndex = 2;
 			// 
 			// posts1
@@ -169,7 +175,7 @@
 			posts1.Dock = DockStyle.Fill;
 			posts1.Location = new Point(0, 0);
 			posts1.Name = "posts1";
-			posts1.Size = new Size(1033, 667);
+			posts1.Size = new Size(1090, 765);
 			posts1.TabIndex = 3;
 			// 
 			// Main
@@ -177,7 +183,7 @@
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.White;
-			ClientSize = new Size(1164, 667);
+			ClientSize = new Size(1221, 765);
 			Controls.Add(panel2);
 			Controls.Add(panel1);
 			Icon = (Icon)resources.GetObject("$this.Icon");
@@ -185,6 +191,7 @@
 			Name = "Main";
 			StartPosition = FormStartPosition.CenterScreen;
 			Text = "Barter";
+			Load += Main_Load;
 			panel1.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)profileButton).EndInit();
 			((System.ComponentModel.ISupportInitialize)accueilButton).EndInit();
@@ -207,5 +214,6 @@
 		private Button notificationButton;
 		private StatusStrip statusStrip1;
 		private ToolStripProgressBar toolStripProgressBar1;
+		private Button suggestionButton;
 	}
 }

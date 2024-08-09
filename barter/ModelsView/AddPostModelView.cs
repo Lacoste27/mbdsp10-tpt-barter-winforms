@@ -1,15 +1,9 @@
 ﻿using barter.Models;
 using barter.Requests;
 using barter.Responses;
-using barter.Services.Categories;
 using barter.Services.Objects;
 using barter.Services.Posts;
 using barter.Utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace barter.ModelsView
 {
@@ -27,9 +21,9 @@ namespace barter.ModelsView
 			ObjectService = Service.GetService<IObjectService>();
 		}
 
-		public async Task<Post> AddPost(int authorId,String Description, List<int> objectIds)
+		public async Task<Post> AddPost(int authorId, String Description, List<int> objectIds)
 		{
-			PostRequest request = new (){ AuthorId = authorId,Description= Description, ObjectIds = objectIds };
+			PostRequest request = new() { AuthorId = authorId, Description = Description, ObjectIds = objectIds };
 
 			var response = await PostService.AddPost(request);
 

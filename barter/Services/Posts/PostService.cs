@@ -2,6 +2,7 @@
 using barter.Requests;
 using barter.Responses;
 using barter.Services.Api;
+using barter.Utils;
 using Newtonsoft.Json;
 using System.Net;
 using System.Net.Http.Json;
@@ -20,7 +21,8 @@ namespace barter.Services.Posts
 
 		public async Task<Response<ListResponse<Post>>> GetAllPosts(int page = 1, int limit = 10)
 		{
-			string url = $"{endpoint}?page={page}&limit={limit}";
+			int userId = TokenStorage.GetUserId();
+			string url = $"{endpoint}/explore/{userId}?page={page}&limit={limit}";
 
 			try
 			{

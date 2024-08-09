@@ -3,7 +3,6 @@ using barter.Requests;
 using barter.Responses;
 using barter.Services.Api;
 using Newtonsoft.Json;
-using System.IO;
 using System.Net;
 using System.Net.Http.Json;
 

@@ -1,13 +1,7 @@
 ﻿using barter.Models;
-using barter.Services.Categories;
-using barter.Services.Notifications;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using barter.Responses;
 using barter.Requests;
+using barter.Responses;
+using barter.Services.Categories;
 
 namespace barter.ModelsView
 {
@@ -20,7 +14,8 @@ namespace barter.ModelsView
 			CategoryService = Service.GetService<ICategoryService>();
 		}
 
-		public async Task<Category> AddCategory(CategoryRequest request) {
+		public async Task<Category> AddCategory(CategoryRequest request)
+		{
 			var response = await CategoryService.AddCategory(request);
 
 			if (response.Status == Status.Success)

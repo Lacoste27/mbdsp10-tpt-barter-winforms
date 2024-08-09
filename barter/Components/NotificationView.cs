@@ -1,9 +1,5 @@
-﻿using barter.Models;
-using barter.Responses;
+﻿using barter.Responses;
 using barter.Services.Notifications;
-using barter.Windows;
-using Microsoft.AspNetCore.Mvc.ViewEngines;
-using System.Windows.Forms;
 
 namespace barter.Components
 {
@@ -53,7 +49,7 @@ namespace barter.Components
 					MessageBox.Show(data.Message, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				}
 			}
-			catch(Exception Exception)
+			catch (Exception Exception)
 			{
 				MessageBox.Show(Exception.Message, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
