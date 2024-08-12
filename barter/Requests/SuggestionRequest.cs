@@ -8,8 +8,9 @@ namespace barter.Requests
 {
 	public class SuggestionRequest
 	{
-		public int Id { get; set; }
-		public String Status { get; set; }
+		public String Status { get; set; } = "PENDING"; // "PENDING", "ACCEPTED", "DECLINED"
 		public int PostId { get; set; }
+		public int SuggestedById { get; set; }
+		public List<int> SuggestedObjectIds { get; set; }
 	}
 }

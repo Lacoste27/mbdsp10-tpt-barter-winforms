@@ -29,8 +29,8 @@
 		private void InitializeComponent()
 		{
 			pictureBox1 = new PictureBox();
-			label1 = new Label();
-			label2 = new Label();
+			username = new Label();
+			lastMessage = new Label();
 			((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
 			SuspendLayout();
 			// 
@@ -44,38 +44,40 @@
 			pictureBox1.TabIndex = 0;
 			pictureBox1.TabStop = false;
 			// 
-			// label1
+			// username
 			// 
-			label1.AutoSize = true;
-			label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-			label1.Location = new Point(89, 14);
-			label1.Name = "label1";
-			label1.Size = new Size(79, 15);
-			label1.TabIndex = 1;
-			label1.Text = "Projet MBDS";
+			username.AutoSize = true;
+			username.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+			username.Location = new Point(89, 14);
+			username.Name = "username";
+			username.Size = new Size(62, 15);
+			username.TabIndex = 1;
+			username.Text = "username";
 			// 
-			// label2
+			// lastMessage
 			// 
-			label2.AutoSize = true;
-			label2.ForeColor = Color.Gray;
-			label2.Location = new Point(89, 43);
-			label2.Name = "label2";
-			label2.Size = new Size(140, 15);
-			label2.TabIndex = 2;
-			label2.Text = "Tsisy resume ve any . mer";
+			lastMessage.AutoSize = true;
+			lastMessage.ForeColor = Color.Gray;
+			lastMessage.Location = new Point(89, 43);
+			lastMessage.Name = "lastMessage";
+			lastMessage.Size = new Size(140, 15);
+			lastMessage.TabIndex = 2;
+			lastMessage.Text = "Tsisy resume ve any . mer";
 			// 
 			// MessageView
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.White;
-			Controls.Add(label2);
-			Controls.Add(label1);
+			BorderStyle = BorderStyle.Fixed3D;
+			Controls.Add(lastMessage);
+			Controls.Add(username);
 			Controls.Add(pictureBox1);
 			MaximumSize = new Size(334, 73);
 			MinimumSize = new Size(334, 73);
 			Name = "MessageView";
-			Size = new Size(334, 73);
+			Size = new Size(330, 69);
+			Load += MessageView_Load;
 			((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
 			ResumeLayout(false);
 			PerformLayout();
@@ -84,7 +86,7 @@
 		#endregion
 
 		private PictureBox pictureBox1;
-		private Label label1;
-		private Label label2;
+		private Label username;
+		private Label lastMessage;
 	}
 }

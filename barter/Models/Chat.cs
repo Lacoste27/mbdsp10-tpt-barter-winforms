@@ -2,6 +2,7 @@
 {
 	public class Chat
 	{
+		public String _Id { get; set; }
 		public UserMessage Sender { get; set; }
 		public UserMessage Receiver { get; set; }
 		public List<Message> Messages { get; set; }

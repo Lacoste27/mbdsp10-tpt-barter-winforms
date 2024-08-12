@@ -17,7 +17,7 @@ namespace barter.Services.Messages
 
 		public async Task<Response<List<Chat>>> GetUserChat(int userId)
 		{
-			string path = string.Format("{0}/{1}", endpoint, userId);
+			string path = string.Format("{0}/user/{1}", endpoint, userId);
 
 			try
 			{

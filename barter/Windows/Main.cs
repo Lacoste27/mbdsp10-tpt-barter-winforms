@@ -35,7 +35,11 @@ namespace barter.Windows
 
 		private void messageButton_Click(object sender, EventArgs e)
 		{
-			this.messages1.BringToFront();
+			if(this.messages1 is not null)
+			{
+				this.messages1.LoadMessages();
+				this.messages1.BringToFront();
+			}
 		}
 
 		private void accueilButton_Click(object sender, EventArgs e)

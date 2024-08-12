@@ -62,7 +62,6 @@ namespace barter.Components
 			finally
 			{
 			}
-
 		}
 
 		private void postLayout_Paint(object sender, PaintEventArgs e)

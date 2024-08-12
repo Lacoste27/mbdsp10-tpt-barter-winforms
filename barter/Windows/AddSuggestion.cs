@@ -1,5 +1,7 @@
 ﻿using barter.Models;
 using barter.ModelsView;
+using barter.Requests;
+using barter.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -98,9 +100,10 @@ namespace barter.Windows
 			}
 		}
 
-		private void saveButton_Click(object sender, EventArgs e)
+		private async void saveButton_Click(object sender, EventArgs e)
 		{
-			List<int> objectIds = new List<int>();
+			List<int> suggestedObjectIds = new List<int>();
+			int suggestedById = TokenStorage.GetUserId();
 
 			foreach (var item in userObject.CheckedItems)
 			{
@@ -108,8 +111,16 @@ namespace barter.Windows
 
 				if (data is not null)
 				{
-					objectIds.Add(data.Value);
+					suggestedObjectIds.Add(data.Value);
 				}
+			}
+
+			var suggestion = await this.AddSuggestionModelView.SendSuggestion(this.Post, suggestedById, suggestedObjectIds);
+
+			if (suggestion is not null)
+			{
+				MessageBox.Show("Suggestion added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				Close();
 			}
 		}
 	}
