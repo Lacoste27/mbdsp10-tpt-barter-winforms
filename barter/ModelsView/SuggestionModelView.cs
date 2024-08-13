@@ -21,7 +21,7 @@ namespace barter.ModelsView
 			SuggestionService = Service.GetService<ISuggestionService>();
 		}
 
-		public async Task<List<Suggestion>> GetUserSuggestion(string status = "PENDING")
+		public async Task<List<Suggestion>> GetUserSuggestion(string status = null)
 		{
 			var response = await SuggestionService.GetUserSuggestion(status, 1, 10);
 

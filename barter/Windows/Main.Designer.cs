@@ -37,7 +37,6 @@
 			postButton = new Button();
 			accueilButton = new PictureBox();
 			panel2 = new Panel();
-			messages1 = new Components.Messages();
 			posts1 = new Components.Posts();
 			panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)profileButton).BeginInit();
@@ -66,7 +65,7 @@
 			suggestionButton.FlatAppearance.BorderSize = 0;
 			suggestionButton.FlatStyle = FlatStyle.Flat;
 			suggestionButton.Font = new Font("Tahoma", 14F);
-			suggestionButton.Image = Properties.Resources.notification;
+			suggestionButton.Image = Properties.Resources.recommander;
 			suggestionButton.ImageAlign = ContentAlignment.TopCenter;
 			suggestionButton.Location = new Point(3, 462);
 			suggestionButton.Name = "suggestionButton";
@@ -153,21 +152,12 @@
 			// 
 			// panel2
 			// 
-			panel2.Controls.Add(messages1);
 			panel2.Controls.Add(posts1);
 			panel2.Dock = DockStyle.Fill;
 			panel2.Location = new Point(131, 0);
 			panel2.Name = "panel2";
 			panel2.Size = new Size(1090, 765);
 			panel2.TabIndex = 1;
-			// 
-			// messages1
-			// 
-			messages1.Dock = DockStyle.Fill;
-			messages1.Location = new Point(0, 0);
-			messages1.Name = "messages1";
-			messages1.Size = new Size(1090, 765);
-			messages1.TabIndex = 2;
 			// 
 			// posts1
 			// 

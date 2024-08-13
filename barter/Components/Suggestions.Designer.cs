@@ -42,7 +42,7 @@
 			panel1.Dock = DockStyle.Top;
 			panel1.Location = new Point(0, 0);
 			panel1.Name = "panel1";
-			panel1.Size = new Size(939, 53);
+			panel1.Size = new Size(1039, 53);
 			panel1.TabIndex = 0;
 			// 
 			// label1
@@ -60,7 +60,7 @@
 			panel2.Dock = DockStyle.Fill;
 			panel2.Location = new Point(0, 53);
 			panel2.Name = "panel2";
-			panel2.Size = new Size(939, 474);
+			panel2.Size = new Size(1039, 514);
 			panel2.TabIndex = 1;
 			// 
 			// layout
@@ -68,7 +68,8 @@
 			layout.Dock = DockStyle.Fill;
 			layout.Location = new Point(0, 0);
 			layout.Name = "layout";
-			layout.Size = new Size(939, 474);
+			layout.Padding = new Padding(10);
+			layout.Size = new Size(1039, 514);
 			layout.TabIndex = 0;
 			// 
 			// Suggestions
@@ -79,7 +80,7 @@
 			Controls.Add(panel2);
 			Controls.Add(panel1);
 			Name = "Suggestions";
-			Size = new Size(939, 527);
+			Size = new Size(1039, 567);
 			Load += Suggestions_Load;
 			panel1.ResumeLayout(false);
 			panel1.PerformLayout();

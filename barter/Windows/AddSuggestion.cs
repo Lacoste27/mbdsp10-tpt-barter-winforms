@@ -39,6 +39,15 @@ namespace barter.Windows
 
 		private void AddSuggestion_Load(object sender, EventArgs e)
 		{
+			this.description.Text = this.Post.description;
+			this.username.Text = this.Post.Author.Username;
+
+			Load_Post_Object();
+			Load_User_Object();
+		}
+
+		private void Load_Post_Object()
+		{
 			if (this.Post is not null)
 			{
 				foreach (var item in this.Post.Objects)
@@ -64,10 +73,6 @@ namespace barter.Windows
 				postObject.ColumnWidth = maxWidth + SystemInformation.VerticalScrollBarWidth;
 			}
 
-			this.description.Text = this.Post.description;
-			this.username.Text = this.Post.Author.Username;
-
-			Load_User_Object();
 		}
 
 		private async void Load_User_Object()

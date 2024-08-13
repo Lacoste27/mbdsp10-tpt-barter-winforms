@@ -38,12 +38,13 @@
 			pageNumber = new TextBox();
 			previousButton = new Button();
 			panel2 = new Panel();
-			addPostButton = new Button();
 			postButton = new Button();
 			objectButton = new Button();
 			label1 = new Label();
 			pictureBox1 = new PictureBox();
 			addObjectButton = new Button();
+			addPostButton = new Button();
+			logoutButton = new Button();
 			panel1.SuspendLayout();
 			panel4.SuspendLayout();
 			panel3.SuspendLayout();
@@ -135,6 +136,7 @@
 			// 
 			// panel2
 			// 
+			panel2.Controls.Add(logoutButton);
 			panel2.Controls.Add(postButton);
 			panel2.Controls.Add(objectButton);
 			panel2.Controls.Add(label1);
@@ -147,21 +149,6 @@
 			panel2.Size = new Size(1192, 219);
 			panel2.TabIndex = 0;
 			panel2.Paint += panel2_Paint;
-			// 
-			// addPostButton
-			// 
-			addPostButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-			addPostButton.Image = (Image)resources.GetObject("addPostButton.Image");
-			addPostButton.ImageAlign = ContentAlignment.MiddleLeft;
-			addPostButton.Location = new Point(1087, 178);
-			addPostButton.Name = "addPostButton";
-			addPostButton.Size = new Size(91, 23);
-			addPostButton.TabIndex = 4;
-			addPostButton.Text = "Add post";
-			addPostButton.TextAlign = ContentAlignment.MiddleRight;
-			addPostButton.UseVisualStyleBackColor = true;
-			addPostButton.Visible = false;
-			addPostButton.Click += addPostButton_Click;
 			// 
 			// postButton
 			// 
@@ -218,6 +205,31 @@
 			addObjectButton.Visible = false;
 			addObjectButton.Click += addObjectButton_Click;
 			// 
+			// addPostButton
+			// 
+			addPostButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+			addPostButton.Image = (Image)resources.GetObject("addPostButton.Image");
+			addPostButton.ImageAlign = ContentAlignment.MiddleLeft;
+			addPostButton.Location = new Point(1087, 178);
+			addPostButton.Name = "addPostButton";
+			addPostButton.Size = new Size(91, 23);
+			addPostButton.TabIndex = 4;
+			addPostButton.Text = "Add post";
+			addPostButton.TextAlign = ContentAlignment.MiddleRight;
+			addPostButton.UseVisualStyleBackColor = true;
+			addPostButton.Visible = false;
+			addPostButton.Click += addPostButton_Click;
+			// 
+			// logoutButton
+			// 
+			logoutButton.Location = new Point(1087, 20);
+			logoutButton.Name = "logoutButton";
+			logoutButton.Size = new Size(91, 29);
+			logoutButton.TabIndex = 6;
+			logoutButton.Text = "Logout";
+			logoutButton.UseVisualStyleBackColor = true;
+			logoutButton.Click += logoutButton_Click;
+			// 
 			// Profil
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
@@ -254,5 +266,6 @@
 		private ProgressBar progression;
 		private Button addPostButton;
 		private Button addObjectButton;
+		private Button logoutButton;
 	}
 }

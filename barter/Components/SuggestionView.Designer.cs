@@ -71,13 +71,15 @@
 			detailButton.TabIndex = 8;
 			detailButton.Text = "Details";
 			detailButton.UseVisualStyleBackColor = false;
+			detailButton.Click += detailButton_Click;
 			// 
 			// username
 			// 
 			username.AutoSize = true;
+			username.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
 			username.Location = new Point(90, 14);
 			username.Name = "username";
-			username.Size = new Size(38, 15);
+			username.Size = new Size(45, 17);
 			username.TabIndex = 9;
 			username.Text = "label1";
 			// 
@@ -103,6 +105,7 @@
 			Controls.Add(pictureBox1);
 			Name = "SuggestionView";
 			Size = new Size(363, 133);
+			Load += SuggestionView_Load;
 			((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
 			ResumeLayout(false);
 			PerformLayout();
@@ -112,8 +115,8 @@
 
 		private PictureBox pictureBox1;
 		private Button suggestStatus;
-		private Button detailButton;
 		private Label username;
 		private Label label1;
+		public Button detailButton;
 	}
 }

@@ -1,4 +1,5 @@
 ﻿using barter.ModelsView;
+using barter.Utils;
 using barter.Windows;
 using System.ComponentModel;
 
@@ -166,6 +167,22 @@ namespace barter.Components
 		private void pageNumber_TextChanged(object sender, EventArgs e)
 		{
 
+		}
+
+		private void logoutButton_Click(object sender, EventArgs e)
+		{
+			DialogResult confirmation = MessageBox.Show("Are you sure you want to log out?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+			if(confirmation == DialogResult.Yes)
+			{
+				Form parent = FindForm();
+				if(parent is not null)
+				{
+					TokenStorage.DeleteToken();
+
+					parent.Close();
+				}
+			}
 		}
 	}
 }

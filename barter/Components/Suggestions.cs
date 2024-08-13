@@ -1,4 +1,5 @@
 ﻿using barter.ModelsView;
+using System.ComponentModel;
 
 namespace barter.Components
 {
@@ -30,6 +31,7 @@ namespace barter.Components
 					foreach (var suggestion in suggestions)
 					{
 						SuggestionView view = new SuggestionView(suggestion);
+						view.Detail.FormClosing += OnClose;
 						view.Margin = new Padding(0, 0, 20, 30);
 
 						controlsToAdd.Add(view);
@@ -56,6 +58,10 @@ namespace barter.Components
 		private void Suggestions_Load(object sender, EventArgs e)
 		{
 			Load_Suggestion();
+		}
+
+		private void OnClose(object sender, CancelEventArgs e)
+		{
 		}
 	}
 }

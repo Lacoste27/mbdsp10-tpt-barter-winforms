@@ -19,7 +19,7 @@ namespace barter.Services.Suggestions
 			ApiService = Service.GetService<IApiService>();
 		}
 
-		public async Task<Response<ListResponse<Suggestion>>> GetUserSuggestion(string status = "PENDNG", int page = 1, int limit = 10)
+		public async Task<Response<ListResponse<Suggestion>>> GetUserSuggestion(string status = null, int page = 1, int limit = 10)
 		{
 			int userId = TokenStorage.GetUserId();
 
@@ -55,6 +55,39 @@ namespace barter.Services.Suggestions
 			{
 				HttpResponseMessage response = await this.ApiService.GetClient().PostAsJsonAsync(
 				path, request);
+
+				if (response.IsSuccessStatusCode)
+				{
+					var data = await response.Content.ReadFromJsonAsync<Suggestion>();
+					return new Response<Suggestion>(Status.Success, data);
+				}
+				/*else if (response.StatusCode == HttpStatusCode.BadRequest)
+				{
+					var errorContent = await response.Content.ReadAsStringAsync();
+					var badRequestResponse = JsonConvert.DeserializeObject<BadRequest>(errorContent);
+					var errorMessage = string.Join(";\n ", badRequestResponse.Errors.Select(e => e.Msg));
+					return new Response<Suggestion>(Status.Error, null, errorMessage);
+				}*/
+				else
+				{
+					var errorMessage = await response.Content.ReadAsStringAsync();
+					return new Response<Suggestion>(Status.Error, null, errorMessage);
+				}
+			}
+			catch (Exception Exception)
+			{
+				return new Response<Suggestion>(Status.Error, null, Exception.Message, Exception);
+			}
+		}
+
+		public async Task<Response<Suggestion>> UpdateSuggestion(int idSuggestion, String status)
+		{
+			string path = $"{endpoint}/status/{idSuggestion}";
+
+			try
+			{
+				HttpResponseMessage response = await this.ApiService.GetClient().PatchAsJsonAsync(
+				path, new {status = status});
 
 				if (response.IsSuccessStatusCode)
 				{
