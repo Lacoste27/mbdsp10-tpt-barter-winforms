@@ -43,7 +43,8 @@ namespace barter.Services.Objects
 
 		public async Task<Response<ListResponse<Models.Object>>> GetUserObjects(int userId, int page = 1, int limit = 10)
 		{
-			string path = string.Format("{0}/owner/{1}", endpoint, userId);
+			// string path = string.Format("{0}/owner/{1}", endpoint, userId);
+			string path = $"{endpoint}/owner/{userId}?page={page}&limit={limit}";
 
 			try
 			{

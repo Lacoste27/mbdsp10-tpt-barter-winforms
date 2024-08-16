@@ -108,6 +108,7 @@
 			nextButton.TabIndex = 5;
 			nextButton.Text = ">";
 			nextButton.UseVisualStyleBackColor = true;
+			nextButton.Click += nextButton_Click;
 			// 
 			// pageNumber
 			// 
@@ -124,6 +125,7 @@
 			previousButton.TabIndex = 3;
 			previousButton.Text = "<";
 			previousButton.UseVisualStyleBackColor = true;
+			previousButton.Click += previousButton_Click;
 			// 
 			// panel3
 			// 

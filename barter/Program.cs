@@ -23,27 +23,18 @@ namespace barter
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 
-			using (Form hiddenForm = new Form())
+			
+			if (isTokenExpired)
 			{
-				hiddenForm.WindowState = FormWindowState.Minimized;
-				hiddenForm.ShowInTaskbar = false;
-				hiddenForm.Show();
-
-				while (true)
+				var loginForm = new Login();
+				if (loginForm.ShowDialog() == DialogResult.OK)
 				{
-					if (isTokenExpired)
-					{
-						var loginForm = new Login();
-						if (loginForm.ShowDialog() == DialogResult.OK)
-						{
-							Application.Run(new Main());
-						}
-					}
-					else
-					{
-						Application.Run(new Main());
-					}
+					Application.Run(new Main());
 				}
+			}
+			else
+			{
+				Application.Run(new Main());
 			}
 		}
 	}

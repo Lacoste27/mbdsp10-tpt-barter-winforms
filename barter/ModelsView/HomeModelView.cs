@@ -10,7 +10,7 @@ namespace barter.ModelsView
 
 		public ListResponse<Post> Posts { get; private set; }
 
-		public bool PostChanged { get; set; }
+		public bool PostChanged { get; set; } = true;
 
 
 		public HomeModelView()
@@ -18,12 +18,13 @@ namespace barter.ModelsView
 			PostService = Service.GetService<IPostService>();
 		}
 
-		public async Task<List<Post>> GetPosts()
+		public async Task<List<Post>> GetPosts(int page = 1, int limit = 10)
 		{
-			var response = await PostService.GetAllPosts(1, 10);
+			var response = await PostService.GetAllPosts(page, limit);
 
 			if (response.Status == Status.Success)
 			{
+				PostChanged = true;
 				Posts = response.Data;
 				return response.Data.Data;
 			}

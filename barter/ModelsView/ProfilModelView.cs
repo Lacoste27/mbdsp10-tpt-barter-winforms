@@ -13,7 +13,9 @@ namespace barter.ModelsView
 
 		public List<Models.Object> UserObjects { get; private set; }
 		public List<Post> UserPosts { get; private set; }
+
 		public ListResponse<Models.Object> Objects { get; private set; }
+		public ListResponse<Post> Posts { get; private set; }
 		public Boolean userObjectChanged { get; set; } = false;
 		public Boolean userPostChanged { get; set; } = false;
 
@@ -44,11 +46,11 @@ namespace barter.ModelsView
 		public async Task<List<Post>> GetUserPosts(int page = 1, int limit = 10)
 		{
 			int userId = TokenStorage.GetUserId();
-
 			var response = await PostService.GetUserPost(userId, page, limit);
 
 			if (response.Status == Status.Success)
 			{
+				Posts = response.Data;
 				UserPosts = [.. response.Data.Data];
 				return [.. response.Data.Data];
 			}

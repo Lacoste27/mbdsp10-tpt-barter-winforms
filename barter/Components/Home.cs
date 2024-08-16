@@ -20,39 +20,51 @@ namespace barter.Components
 			map.ShowDialog();
 		}
 
-		public async void Load_Post()
+		public async Task Load_Post(int page = 1, int limit = 10)
 		{
 			try
 			{
-				var posts = await HomeModelView.GetPosts().ConfigureAwait(false);
-
-				if (posts is not null)
+				if (HomeModelView.PostChanged)
 				{
-					this.Invoke((MethodInvoker)delegate
+					var posts = await HomeModelView.GetPosts(page, limit).ConfigureAwait(false);
+
+					if (posts is not null)
 					{
-						layout.SuspendLayout();
-						layout.Controls.Clear();
-						progression.Visible = true;
-					});
+						this.Invoke((MethodInvoker)delegate
+						{
+							layout.SuspendLayout();
+							layout.Controls.Clear();
+							progression.Visible = true;
 
-					List<PostView> controlsToAdd = new List<PostView>();
+							Cursor.Current = Cursors.WaitCursor;
+						});
 
-					foreach (var post in posts)
-					{
-						PostView view = new PostView(post);
-						view.Margin = new Padding(0, 0, 20, 30);
+						List<PostView> controlsToAdd = new List<PostView>();
 
-						controlsToAdd.Add(view);
+						foreach (var post in posts)
+						{
+							PostView view = new PostView(post);
+							view.Margin = new Padding(0, 0, 20, 30);
+
+							controlsToAdd.Add(view);
+						}
+
+						this.Invoke((MethodInvoker)delegate
+						{
+							layout.Controls.AddRange(controlsToAdd.ToArray());
+							layout.ResumeLayout(true);
+							progression.Visible = false;
+
+							Cursor.Current = Cursors.Default;
+
+							this.previousButton.Enabled = this.HomeModelView.Posts.HasPrevPage;
+							this.nextButton.Enabled = this.HomeModelView.Posts.HasNextPage;
+							this.pageNumber.Text = (this.HomeModelView.Posts.NextPage == 2) ? "1" : (this.HomeModelView.Posts.NextPage - 1).ToString();
+						});
+
+						DoubleBuffered = true;
+
 					}
-
-					this.Invoke((MethodInvoker)delegate
-					{
-						layout.Controls.AddRange(controlsToAdd.ToArray());
-						layout.ResumeLayout(true);
-						progression.Visible = false;
-					});
-
-					DoubleBuffered = true;
 				}
 			}
 			catch (Exception Exception)
@@ -72,6 +84,28 @@ namespace barter.Components
 		private void Home_Load(object sender, EventArgs e)
 		{
 			Load_Post();
+		}
+
+		private async void nextButton_Click(object sender, EventArgs e)
+		{
+			int nextPage = this.HomeModelView.Posts.NextPage.GetValueOrDefault();
+
+			await Load_Post(nextPage);
+
+			this.previousButton.Enabled = this.HomeModelView.Posts.HasPrevPage;
+			this.nextButton.Enabled = this.HomeModelView.Posts.HasNextPage;
+			this.pageNumber.Text = (this.HomeModelView.Posts.NextPage == 2) ? "1" : (this.HomeModelView.Posts.NextPage - 1).ToString();
+		}
+
+		private async void previousButton_Click(object sender, EventArgs e)
+		{
+			int prevPage = this.HomeModelView.Posts.PrevPage.GetValueOrDefault();
+
+			await Load_Post(prevPage);
+
+			this.previousButton.Enabled = this.HomeModelView.Posts.HasPrevPage;
+			this.nextButton.Enabled = this.HomeModelView.Posts.HasNextPage;
+			this.pageNumber.Text = (this.HomeModelView.Posts.NextPage == 2) ? "1" : (this.HomeModelView.Posts.NextPage - 1).ToString();
 		}
 	}
 }
