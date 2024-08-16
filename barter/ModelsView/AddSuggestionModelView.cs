@@ -59,6 +59,14 @@ namespace barter.ModelsView
 
 			if (suggestion.Status == Responses.Status.Success)
 			{
+				NotificationRequest notificationRequest = new NotificationRequest()
+				{
+					Message = "You have a new suggestion",
+					Subject = "New",
+					UserId = post.Author.Id
+				};
+
+				var notification = await NotificationService.AddNotification(notificationRequest);
 				return suggestion.Data;
 			}
 			else

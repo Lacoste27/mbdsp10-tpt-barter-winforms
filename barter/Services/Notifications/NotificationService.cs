@@ -79,13 +79,13 @@ namespace barter.Services.Notifications
 					var data = await response.Content.ReadFromJsonAsync<Notification>();
 					return new Response<Notification>(Status.Success, data);
 				}
-				else if (response.StatusCode == HttpStatusCode.BadRequest)
+				/*else if (response.StatusCode == HttpStatusCode.BadRequest)
 				{
 					var errorContent = await response.Content.ReadAsStringAsync();
 					var badRequestResponse = JsonConvert.DeserializeObject<BadRequest>(errorContent);
 					var errorMessage = string.Join(";\n ", badRequestResponse.Errors.Select(e => e.Msg));
 					return new Response<Notification>(Status.Error, null, errorMessage);
-				}
+				}*/
 				else
 				{
 					var errorMessage = await response.Content.ReadAsStringAsync();
