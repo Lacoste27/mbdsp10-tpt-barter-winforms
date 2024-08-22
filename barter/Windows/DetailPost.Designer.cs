@@ -35,7 +35,7 @@
 			panel3 = new Panel();
 			splitContainer3 = new SplitContainer();
 			panel5 = new Panel();
-			button1 = new Button();
+			reportButton = new Button();
 			suggestButton = new Button();
 			sendMessageButton = new Button();
 			publishDate = new Label();
@@ -142,7 +142,7 @@
 			// 
 			// panel5
 			// 
-			panel5.Controls.Add(button1);
+			panel5.Controls.Add(reportButton);
 			panel5.Controls.Add(suggestButton);
 			panel5.Controls.Add(sendMessageButton);
 			panel5.Controls.Add(publishDate);
@@ -154,16 +154,17 @@
 			panel5.Size = new Size(395, 169);
 			panel5.TabIndex = 0;
 			// 
-			// button1
+			// reportButton
 			// 
-			button1.FlatStyle = FlatStyle.Flat;
-			button1.ForeColor = Color.Red;
-			button1.Location = new Point(286, 111);
-			button1.Name = "button1";
-			button1.Size = new Size(106, 33);
-			button1.TabIndex = 7;
-			button1.Text = "Report";
-			button1.UseVisualStyleBackColor = true;
+			reportButton.FlatStyle = FlatStyle.Flat;
+			reportButton.ForeColor = Color.Red;
+			reportButton.Location = new Point(286, 111);
+			reportButton.Name = "reportButton";
+			reportButton.Size = new Size(106, 33);
+			reportButton.TabIndex = 7;
+			reportButton.Text = "Report";
+			reportButton.UseVisualStyleBackColor = true;
+			reportButton.Click += reportButton_Click;
 			// 
 			// suggestButton
 			// 
@@ -333,6 +334,6 @@
 		private Button sendMessageButton;
 		private RichTextBox description;
 		private Label label1;
-		private Button button1;
+		private Button reportButton;
 	}
 }

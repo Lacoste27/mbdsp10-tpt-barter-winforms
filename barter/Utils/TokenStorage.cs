@@ -77,5 +77,31 @@ namespace barter.Utils
 
 			return userId;
 		}
+
+		public static string GetUserUsername()
+		{
+			string token = LoadToken();
+			var jwtHandler = new JwtSecurityTokenHandler();
+
+			if (!jwtHandler.CanReadToken(token))
+				return string.Empty;
+
+			var jwtToken = jwtHandler.ReadJwtToken(token);
+
+			return jwtToken.Claims.FirstOrDefault(claim => claim.Type == "username")?.Value ?? "";
+		}
+
+		public static string GetUserEmail()
+		{
+			string token = LoadToken();
+			var jwtHandler = new JwtSecurityTokenHandler();
+
+			if (!jwtHandler.CanReadToken(token))
+				return string.Empty;
+
+			var jwtToken = jwtHandler.ReadJwtToken(token);
+
+			return jwtToken.Claims.FirstOrDefault(claim => claim.Type == "email")?.Value ?? "";
+		}
 	}
 }

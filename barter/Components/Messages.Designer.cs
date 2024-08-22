@@ -32,8 +32,8 @@
 			label1 = new Label();
 			panel2 = new Panel();
 			splitContainer1 = new SplitContainer();
-			messageListView = new MessageListView();
 			messageFlowLayout = new FlowLayoutPanel();
+			messageListView = new MessageListView();
 			panel1.SuspendLayout();
 			panel2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
@@ -74,6 +74,7 @@
 			// splitContainer1
 			// 
 			splitContainer1.Dock = DockStyle.Fill;
+			splitContainer1.FixedPanel = FixedPanel.Panel1;
 			splitContainer1.Location = new Point(0, 0);
 			splitContainer1.Name = "splitContainer1";
 			// 
@@ -86,8 +87,18 @@
 			// 
 			splitContainer1.Panel2.Controls.Add(messageListView);
 			splitContainer1.Size = new Size(1185, 603);
-			splitContainer1.SplitterDistance = 400;
+			splitContainer1.SplitterDistance = 355;
 			splitContainer1.TabIndex = 0;
+			// 
+			// messageFlowLayout
+			// 
+			messageFlowLayout.AutoScroll = true;
+			messageFlowLayout.AutoSize = true;
+			messageFlowLayout.Dock = DockStyle.Fill;
+			messageFlowLayout.Location = new Point(0, 0);
+			messageFlowLayout.Name = "messageFlowLayout";
+			messageFlowLayout.Size = new Size(355, 603);
+			messageFlowLayout.TabIndex = 0;
 			// 
 			// messageListView
 			// 
@@ -95,18 +106,9 @@
 			messageListView.Dock = DockStyle.Fill;
 			messageListView.Location = new Point(0, 0);
 			messageListView.Name = "messageListView";
-			messageListView.Size = new Size(781, 603);
+			messageListView.Size = new Size(826, 603);
 			messageListView.TabIndex = 0;
 			messageListView.Visible = false;
-			// 
-			// messageFlowLayout
-			// 
-			messageFlowLayout.AutoScroll = true;
-			messageFlowLayout.Dock = DockStyle.Fill;
-			messageFlowLayout.Location = new Point(0, 0);
-			messageFlowLayout.Name = "messageFlowLayout";
-			messageFlowLayout.Size = new Size(400, 603);
-			messageFlowLayout.TabIndex = 0;
 			// 
 			// Messages
 			// 
@@ -121,6 +123,7 @@
 			panel1.PerformLayout();
 			panel2.ResumeLayout(false);
 			splitContainer1.Panel1.ResumeLayout(false);
+			splitContainer1.Panel1.PerformLayout();
 			splitContainer1.Panel2.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
 			splitContainer1.ResumeLayout(false);

@@ -60,5 +60,12 @@ namespace barter.Windows
 			AddSuggestion addSuggestion = new(this.post);
 			addSuggestion.ShowDialog();
 		}
+
+		private void reportButton_Click(object sender, EventArgs e)
+		{
+			Report report = new Report(this.post);
+
+			report.ShowDialog();
+		}
 	}
 }

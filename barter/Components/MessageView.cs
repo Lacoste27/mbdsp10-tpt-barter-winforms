@@ -4,7 +4,7 @@ namespace barter.Components
 {
 	public partial class MessageView : UserControl
 	{
-		private Chat Message { get; set; }
+		public Chat Message { get; set; }
 
 
 		public MessageView()
@@ -14,7 +14,8 @@ namespace barter.Components
 
 		public MessageView(Chat Chat)
 		{
-			this.Message = Message;
+			this.Message = Chat;
+			InitializeComponent();
 		}
 
 		private void MessageView_Load(object sender, EventArgs e)

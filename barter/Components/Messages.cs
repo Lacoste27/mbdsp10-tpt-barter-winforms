@@ -1,4 +1,5 @@
-﻿using barter.ModelsView;
+﻿using barter.Models;
+using barter.ModelsView;
 
 namespace barter.Components
 {
@@ -31,14 +32,28 @@ namespace barter.Components
 
 				if (chats != null)
 				{
-					foreach (var chat in chats)
+					for (int i = 0; i < 40; i++)
+					{
+						Chat chat = new Chat();
+						chat.Receiver = new();
+						chat.Receiver.Username = "User" + i;
+
+						var messageView = new MessageView(chat);
+						messageView.BackColor = Color.White;
+						messageView.Click += message_Click;
+
+						messageFlowLayout.Controls.Add(messageView);
+						messageFlowLayout.Refresh();
+					}
+
+					/*foreach (var chat in chats)
 					{
 						var messageView = new MessageView(chat);
 						messageView.BackColor = Color.White;
 
 						messageFlowLayout.Controls.Add(messageView);
 						messageFlowLayout.Refresh();
-					}
+					*/
 				}
 			}
 			catch (Exception Exception)
@@ -46,5 +61,21 @@ namespace barter.Components
 				MessageBox.Show("Une erreur s'est produite !", "Message d'erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
-	}
+
+		private void message_Click(object sender, EventArgs e)
+		{
+			MessageView message = (MessageView)sender;
+
+			MessageListView listView = new MessageListView(message.Message);
+
+			listView.BackColor = Color.White;
+			listView.Dock = DockStyle.Fill;
+			listView.Location = new Point(0, 0);
+			listView.TabIndex = 0;
+			listView.Visible = true;
+
+			splitContainer1.Panel2.Controls.Clear();
+			splitContainer1.Panel2.Controls.Add(listView);
+		}
+	} 
 }

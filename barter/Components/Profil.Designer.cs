@@ -38,13 +38,14 @@
 			pageNumber = new TextBox();
 			previousButton = new Button();
 			panel2 = new Panel();
+			notificationState = new CheckBox();
+			logoutButton = new Button();
 			postButton = new Button();
 			objectButton = new Button();
 			label1 = new Label();
 			pictureBox1 = new PictureBox();
 			addObjectButton = new Button();
 			addPostButton = new Button();
-			logoutButton = new Button();
 			panel1.SuspendLayout();
 			panel4.SuspendLayout();
 			panel3.SuspendLayout();
@@ -136,6 +137,7 @@
 			// 
 			// panel2
 			// 
+			panel2.Controls.Add(notificationState);
 			panel2.Controls.Add(logoutButton);
 			panel2.Controls.Add(postButton);
 			panel2.Controls.Add(objectButton);
@@ -149,6 +151,29 @@
 			panel2.Size = new Size(1192, 219);
 			panel2.TabIndex = 0;
 			panel2.Paint += panel2_Paint;
+			// 
+			// notificationState
+			// 
+			notificationState.Appearance = Appearance.Button;
+			notificationState.AutoSize = true;
+			notificationState.FlatStyle = FlatStyle.Popup;
+			notificationState.Location = new Point(294, 101);
+			notificationState.Name = "notificationState";
+			notificationState.Size = new Size(111, 25);
+			notificationState.TabIndex = 7;
+			notificationState.Text = "Allow notification";
+			notificationState.UseVisualStyleBackColor = true;
+			// 
+			// logoutButton
+			// 
+			logoutButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+			logoutButton.Location = new Point(1087, 20);
+			logoutButton.Name = "logoutButton";
+			logoutButton.Size = new Size(91, 29);
+			logoutButton.TabIndex = 6;
+			logoutButton.Text = "Logout";
+			logoutButton.UseVisualStyleBackColor = true;
+			logoutButton.Click += logoutButton_Click;
 			// 
 			// postButton
 			// 
@@ -174,7 +199,7 @@
 			// label1
 			// 
 			label1.AutoSize = true;
-			label1.Location = new Point(294, 75);
+			label1.Location = new Point(294, 37);
 			label1.Name = "label1";
 			label1.Size = new Size(60, 15);
 			label1.TabIndex = 1;
@@ -220,16 +245,6 @@
 			addPostButton.Visible = false;
 			addPostButton.Click += addPostButton_Click;
 			// 
-			// logoutButton
-			// 
-			logoutButton.Location = new Point(1087, 20);
-			logoutButton.Name = "logoutButton";
-			logoutButton.Size = new Size(91, 29);
-			logoutButton.TabIndex = 6;
-			logoutButton.Text = "Logout";
-			logoutButton.UseVisualStyleBackColor = true;
-			logoutButton.Click += logoutButton_Click;
-			// 
 			// Profil
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
@@ -267,5 +282,6 @@
 		private Button addPostButton;
 		private Button addObjectButton;
 		private Button logoutButton;
+		private CheckBox notificationState;
 	}
 }

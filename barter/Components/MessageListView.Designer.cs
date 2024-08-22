@@ -29,24 +29,26 @@
 		private void InitializeComponent()
 		{
 			panel1 = new Panel();
-			label1 = new Label();
+			username = new Label();
 			pictureBox1 = new PictureBox();
 			panel2 = new Panel();
 			tableLayoutPanel1 = new TableLayoutPanel();
 			richTextBox1 = new RichTextBox();
 			pictureBox2 = new PictureBox();
 			panel3 = new Panel();
+			flowLayoutPanel1 = new FlowLayoutPanel();
 			panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
 			panel2.SuspendLayout();
 			tableLayoutPanel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+			panel3.SuspendLayout();
 			SuspendLayout();
 			// 
 			// panel1
 			// 
 			panel1.BackColor = Color.White;
-			panel1.Controls.Add(label1);
+			panel1.Controls.Add(username);
 			panel1.Controls.Add(pictureBox1);
 			panel1.Dock = DockStyle.Top;
 			panel1.Location = new Point(0, 0);
@@ -55,15 +57,15 @@
 			panel1.Size = new Size(934, 47);
 			panel1.TabIndex = 0;
 			// 
-			// label1
+			// username
 			// 
-			label1.AutoSize = true;
-			label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			label1.Location = new Point(59, 14);
-			label1.Name = "label1";
-			label1.Size = new Size(79, 15);
-			label1.TabIndex = 1;
-			label1.Text = "Projet MBDS";
+			username.AutoSize = true;
+			username.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+			username.Location = new Point(59, 14);
+			username.Name = "username";
+			username.Size = new Size(79, 15);
+			username.TabIndex = 1;
+			username.Text = "Projet MBDS";
 			// 
 			// pictureBox1
 			// 
@@ -126,12 +128,26 @@
 			// panel3
 			// 
 			panel3.BackColor = Color.White;
+			panel3.Controls.Add(flowLayoutPanel1);
 			panel3.Dock = DockStyle.Fill;
 			panel3.Location = new Point(0, 47);
 			panel3.Name = "panel3";
 			panel3.Padding = new Padding(5);
 			panel3.Size = new Size(934, 521);
 			panel3.TabIndex = 2;
+			panel3.Paint += panel3_Paint;
+			// 
+			// flowLayoutPanel1
+			// 
+			flowLayoutPanel1.AutoScroll = true;
+			flowLayoutPanel1.AutoSize = true;
+			flowLayoutPanel1.BackColor = Color.White;
+			flowLayoutPanel1.Dock = DockStyle.Fill;
+			flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
+			flowLayoutPanel1.Location = new Point(5, 5);
+			flowLayoutPanel1.Name = "flowLayoutPanel1";
+			flowLayoutPanel1.Size = new Size(924, 511);
+			flowLayoutPanel1.TabIndex = 0;
 			// 
 			// MessageListView
 			// 
@@ -143,12 +159,15 @@
 			Controls.Add(panel1);
 			Name = "MessageListView";
 			Size = new Size(934, 610);
+			Load += MessageListView_Load;
 			panel1.ResumeLayout(false);
 			panel1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
 			panel2.ResumeLayout(false);
 			tableLayoutPanel1.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+			panel3.ResumeLayout(false);
+			panel3.PerformLayout();
 			ResumeLayout(false);
 		}
 
@@ -157,10 +176,11 @@
 		private Panel panel1;
 		private Panel panel2;
 		private Panel panel3;
-		private Label label1;
+		private Label username;
 		private PictureBox pictureBox1;
 		private TableLayoutPanel tableLayoutPanel1;
 		private RichTextBox richTextBox1;
 		private PictureBox pictureBox2;
+		private FlowLayoutPanel flowLayoutPanel1;
 	}
 }

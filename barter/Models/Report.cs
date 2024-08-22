@@ -30,16 +30,16 @@
 	{
 		public string _Id { get; set; }
 
-		public required UserReport UserMakeReport { get; set; }
+		public UserReport UserMakeReport { get; set; }
 
 		public UserReport? UserReport { get; set; }
 		public ObjetReport? ObjetReport { get; set; }
 
-		public required string Motif { get; set; }
+		public string Motif { get; set; }
 
 		public DateTime DateCreation { get; set; }
 
-		public required string Statut { get; set; }
+		public string Statut { get; set; }
 
 		public DateTime CreatedAt { get; set; }
 

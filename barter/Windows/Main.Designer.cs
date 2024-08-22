@@ -69,7 +69,7 @@
 			suggestionButton.ImageAlign = ContentAlignment.TopCenter;
 			suggestionButton.Location = new Point(3, 462);
 			suggestionButton.Name = "suggestionButton";
-			suggestionButton.Size = new Size(122, 71);
+			suggestionButton.Size = new Size(122, 66);
 			suggestionButton.TabIndex = 6;
 			suggestionButton.Text = "Suggestion";
 			suggestionButton.TextAlign = ContentAlignment.BottomCenter;

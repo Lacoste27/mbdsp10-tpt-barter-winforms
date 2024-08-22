@@ -35,11 +35,20 @@ namespace barter.Windows
 
 		private void messageButton_Click(object sender, EventArgs e)
 		{
-			if(this.messages1 is not null)
+			if(this.messages1 is null)
 			{
-				this.messages1.LoadMessages();
-				this.messages1.BringToFront();
+				this.messages1 = new Components.Messages();
+				this.messages1.Dock = DockStyle.Fill;
 			}
+
+			this.messages1.LoadMessages();
+
+			this.panel2.Controls.Add(this.messages1);
+			this.messages1.BringToFront();
+
+			this.suggestionButton.FlatStyle = FlatStyle.Flat;
+			this.notificationButton.FlatStyle = FlatStyle.Flat;
+			this.messageButton.FlatStyle = FlatStyle.Standard;
 		}
 
 		private void accueilButton_Click(object sender, EventArgs e)
@@ -58,6 +67,10 @@ namespace barter.Windows
 
 		private void notificationButton_Click(object sender, EventArgs e)
 		{
+			this.suggestionButton.FlatStyle = FlatStyle.Flat;
+			this.notificationButton.FlatStyle = FlatStyle.Standard;
+			this.messageButton.FlatStyle = FlatStyle.Flat;
+
 			Notification notification = new Notification();
 			notification.ShowDialog();
 		}
@@ -79,6 +92,10 @@ namespace barter.Windows
 				this.suggestion = new Suggestions();
 				this.suggestion.Dock = DockStyle.Fill;
 			}
+
+			this.suggestionButton.FlatStyle = FlatStyle.Standard;
+			this.notificationButton.FlatStyle = FlatStyle.Flat;
+			this.messageButton.FlatStyle = FlatStyle.Flat;
 
 			this.panel2.Controls.Add(this.suggestion);
 			this.suggestion.BringToFront();
