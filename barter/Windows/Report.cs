@@ -84,6 +84,7 @@ namespace barter.Windows
 					if(postObject.CheckedItems.Count == 0)
 					{
 						MessageBox.Show("Please choose one object to report", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+						return;
 					}
 
 					foreach (var item in postObject.CheckedItems)

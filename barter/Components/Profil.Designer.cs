@@ -38,14 +38,17 @@
 			pageNumber = new TextBox();
 			previousButton = new Button();
 			panel2 = new Panel();
-			notificationState = new CheckBox();
 			logoutButton = new Button();
 			postButton = new Button();
 			objectButton = new Button();
-			label1 = new Label();
+			username = new Label();
 			pictureBox1 = new PictureBox();
 			addObjectButton = new Button();
 			addPostButton = new Button();
+			label1 = new Label();
+			label2 = new Label();
+			label3 = new Label();
+			label4 = new Label();
 			panel1.SuspendLayout();
 			panel4.SuspendLayout();
 			panel3.SuspendLayout();
@@ -137,11 +140,14 @@
 			// 
 			// panel2
 			// 
-			panel2.Controls.Add(notificationState);
+			panel2.Controls.Add(label4);
+			panel2.Controls.Add(label3);
+			panel2.Controls.Add(label2);
+			panel2.Controls.Add(label1);
 			panel2.Controls.Add(logoutButton);
 			panel2.Controls.Add(postButton);
 			panel2.Controls.Add(objectButton);
-			panel2.Controls.Add(label1);
+			panel2.Controls.Add(username);
 			panel2.Controls.Add(pictureBox1);
 			panel2.Controls.Add(addObjectButton);
 			panel2.Controls.Add(addPostButton);
@@ -151,18 +157,6 @@
 			panel2.Size = new Size(1192, 219);
 			panel2.TabIndex = 0;
 			panel2.Paint += panel2_Paint;
-			// 
-			// notificationState
-			// 
-			notificationState.Appearance = Appearance.Button;
-			notificationState.AutoSize = true;
-			notificationState.FlatStyle = FlatStyle.Popup;
-			notificationState.Location = new Point(294, 101);
-			notificationState.Name = "notificationState";
-			notificationState.Size = new Size(111, 25);
-			notificationState.TabIndex = 7;
-			notificationState.Text = "Allow notification";
-			notificationState.UseVisualStyleBackColor = true;
 			// 
 			// logoutButton
 			// 
@@ -196,14 +190,14 @@
 			objectButton.UseVisualStyleBackColor = true;
 			objectButton.Click += objectButton_Click;
 			// 
-			// label1
+			// username
 			// 
-			label1.AutoSize = true;
-			label1.Location = new Point(294, 37);
-			label1.Name = "label1";
-			label1.Size = new Size(60, 15);
-			label1.TabIndex = 1;
-			label1.Text = "Username";
+			username.AutoSize = true;
+			username.Location = new Point(301, 77);
+			username.Name = "username";
+			username.Size = new Size(60, 15);
+			username.TabIndex = 1;
+			username.Text = "Username";
 			// 
 			// pictureBox1
 			// 
@@ -245,6 +239,46 @@
 			addPostButton.Visible = false;
 			addPostButton.Click += addPostButton_Click;
 			// 
+			// label1
+			// 
+			label1.AutoSize = true;
+			label1.Location = new Point(502, 131);
+			label1.Name = "label1";
+			label1.Size = new Size(93, 15);
+			label1.TabIndex = 7;
+			label1.Text = "Nombre de post";
+			// 
+			// label2
+			// 
+			label2.AutoSize = true;
+			label2.Location = new Point(769, 131);
+			label2.Name = "label2";
+			label2.Size = new Size(109, 15);
+			label2.TabIndex = 8;
+			label2.Text = "Nombre d'échange";
+			// 
+			// label3
+			// 
+			label3.AutoSize = true;
+			label3.Font = new Font("Segoe UI", 27.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+			label3.ForeColor = Color.FromArgb(39, 194, 64);
+			label3.Location = new Point(514, 77);
+			label3.Name = "label3";
+			label3.Size = new Size(64, 50);
+			label3.TabIndex = 9;
+			label3.Text = "10";
+			// 
+			// label4
+			// 
+			label4.AutoSize = true;
+			label4.Font = new Font("Segoe UI", 27.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+			label4.ForeColor = Color.FromArgb(39, 194, 64);
+			label4.Location = new Point(798, 81);
+			label4.Name = "label4";
+			label4.Size = new Size(43, 50);
+			label4.TabIndex = 10;
+			label4.Text = "5";
+			// 
 			// Profil
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
@@ -269,7 +303,7 @@
 		private Panel panel1;
 		private Panel panel2;
 		private PictureBox pictureBox1;
-		private Label label1;
+		private Label username;
 		private Button postButton;
 		private Button objectButton;
 		private Panel panel4;
@@ -282,6 +316,9 @@
 		private Button addPostButton;
 		private Button addObjectButton;
 		private Button logoutButton;
-		private CheckBox notificationState;
+		private Label label1;
+		private Label label2;
+		private Label label4;
+		private Label label3;
 	}
 }

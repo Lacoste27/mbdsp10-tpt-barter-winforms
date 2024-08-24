@@ -62,6 +62,7 @@ namespace barter.Components
 
 		private void OnClose(object sender, CancelEventArgs e)
 		{
+			Load_Suggestion();
 		}
 	}
 }

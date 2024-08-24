@@ -33,6 +33,7 @@ namespace barter.Components
 
 		private async void Profil_Load(object sender, EventArgs e)
 		{
+			this.username.Text = TokenStorage.GetUserUsername();
 		}
 
 		private void AddObject_Closing(object sender, CancelEventArgs e)

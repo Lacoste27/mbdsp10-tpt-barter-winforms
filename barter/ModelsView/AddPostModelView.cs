@@ -21,9 +21,16 @@ namespace barter.ModelsView
 			ObjectService = Service.GetService<IObjectService>();
 		}
 
-		public async Task<Post> AddPost(int authorId, String Description, List<int> objectIds)
+		public async Task<Post> AddPost(int authorId, String Description,double Latitude, double Longitude, string Adress, List<int> objectIds)
 		{
-			PostRequest request = new() { AuthorId = authorId, Description = Description, ObjectIds = objectIds };
+			PostRequest request = new() { 
+				AuthorId = authorId, 
+				Description = Description, 
+				ObjectIds = objectIds,
+				Latitude = Latitude,
+				Longitude = Longitude,
+				Adress = Adress
+			};
 
 			var response = await PostService.AddPost(request);
 
