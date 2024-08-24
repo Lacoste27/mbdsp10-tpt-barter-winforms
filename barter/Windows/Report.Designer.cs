@@ -118,7 +118,6 @@
 			postObject.Name = "postObject";
 			postObject.Size = new Size(319, 94);
 			postObject.TabIndex = 7;
-			postObject.Visible = false;
 			// 
 			// Report
 			// 

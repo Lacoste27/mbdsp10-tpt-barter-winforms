@@ -68,6 +68,7 @@
 			Icon = (Icon)resources.GetObject("$this.Icon");
 			Name = "MapView";
 			Text = "Map view";
+			Load += MapView_Load;
 			ResumeLayout(false);
 		}
 
