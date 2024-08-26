@@ -12,7 +12,7 @@ namespace barter.Services.Api
 		public ApiService()
 		{
 			Client = new();
-			Client.BaseAddress = new Uri(Properties.Resources.baseurl);
+			Client.BaseAddress = new Uri(Properties.Resources.remoteurl);
 			Client.DefaultRequestHeaders.Accept.Clear();
 			Client.DefaultRequestHeaders.Accept.Add(
 				new MediaTypeWithQualityHeaderValue("application/json"));
