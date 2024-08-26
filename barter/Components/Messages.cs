@@ -32,6 +32,7 @@ namespace barter.Components
 
 				if (chats != null)
 				{
+					
 					/*for (int i = 0; i < 10; i++)
 					{
 						Chat chat = new Chat();

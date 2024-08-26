@@ -37,5 +37,20 @@ namespace barter.ModelsView
 				return null;
 			}
 		}
+
+		public async Task<Chat> ContinueChat(string chatId, Models.Message message)
+		{
+			var response = await MessageService.ContinueChat(chatId, message);
+
+			if (response.Status == Responses.Status.Success)
+			{
+				return response.Data;
+			}
+			else
+			{
+				MessageBox.Show(response.Message, "Message d'erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return null;
+			}
+		}
 	}
 }

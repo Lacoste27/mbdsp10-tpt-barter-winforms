@@ -28,20 +28,21 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MessageListView));
 			panel1 = new Panel();
 			username = new Label();
 			pictureBox1 = new PictureBox();
 			panel2 = new Panel();
 			tableLayoutPanel1 = new TableLayoutPanel();
-			richTextBox1 = new RichTextBox();
-			pictureBox2 = new PictureBox();
+			messageText = new RichTextBox();
+			sendButton = new PictureBox();
 			panel3 = new Panel();
 			flowLayoutPanel1 = new FlowLayoutPanel();
 			panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
 			panel2.SuspendLayout();
 			tableLayoutPanel1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+			((System.ComponentModel.ISupportInitialize)sendButton).BeginInit();
 			panel3.SuspendLayout();
 			SuspendLayout();
 			// 
@@ -90,40 +91,41 @@
 			// tableLayoutPanel1
 			// 
 			tableLayoutPanel1.ColumnCount = 2;
-			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 95.70011F));
-			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 4.29988956F));
-			tableLayoutPanel1.Controls.Add(richTextBox1, 0, 0);
-			tableLayoutPanel1.Controls.Add(pictureBox2, 1, 0);
+			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 95.9183655F));
+			tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 4.08163261F));
+			tableLayoutPanel1.Controls.Add(messageText, 0, 0);
+			tableLayoutPanel1.Controls.Add(sendButton, 1, 0);
 			tableLayoutPanel1.Dock = DockStyle.Fill;
 			tableLayoutPanel1.Location = new Point(0, 0);
 			tableLayoutPanel1.Name = "tableLayoutPanel1";
 			tableLayoutPanel1.Padding = new Padding(5);
 			tableLayoutPanel1.RowCount = 1;
-			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+			tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
 			tableLayoutPanel1.Size = new Size(934, 42);
 			tableLayoutPanel1.TabIndex = 0;
 			// 
-			// richTextBox1
+			// messageText
 			// 
-			richTextBox1.BorderStyle = BorderStyle.FixedSingle;
-			richTextBox1.Dock = DockStyle.Fill;
-			richTextBox1.Location = new Point(8, 8);
-			richTextBox1.Name = "richTextBox1";
-			richTextBox1.ScrollBars = RichTextBoxScrollBars.Horizontal;
-			richTextBox1.Size = new Size(878, 26);
-			richTextBox1.TabIndex = 0;
-			richTextBox1.Text = "";
+			messageText.BorderStyle = BorderStyle.FixedSingle;
+			messageText.Dock = DockStyle.Fill;
+			messageText.Location = new Point(8, 8);
+			messageText.Name = "messageText";
+			messageText.ScrollBars = RichTextBoxScrollBars.Horizontal;
+			messageText.Size = new Size(880, 26);
+			messageText.TabIndex = 0;
+			messageText.Text = "";
 			// 
-			// pictureBox2
+			// sendButton
 			// 
-			pictureBox2.Dock = DockStyle.Fill;
-			pictureBox2.Image = Properties.Resources.send;
-			pictureBox2.Location = new Point(892, 8);
-			pictureBox2.Name = "pictureBox2";
-			pictureBox2.Size = new Size(34, 26);
-			pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-			pictureBox2.TabIndex = 1;
-			pictureBox2.TabStop = false;
+			sendButton.Dock = DockStyle.Fill;
+			sendButton.Image = (Image)resources.GetObject("sendButton.Image");
+			sendButton.Location = new Point(894, 8);
+			sendButton.Name = "sendButton";
+			sendButton.Size = new Size(32, 26);
+			sendButton.SizeMode = PictureBoxSizeMode.StretchImage;
+			sendButton.TabIndex = 1;
+			sendButton.TabStop = false;
+			sendButton.Click += sendButton_Click;
 			// 
 			// panel3
 			// 
@@ -165,7 +167,7 @@
 			((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
 			panel2.ResumeLayout(false);
 			tableLayoutPanel1.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+			((System.ComponentModel.ISupportInitialize)sendButton).EndInit();
 			panel3.ResumeLayout(false);
 			panel3.PerformLayout();
 			ResumeLayout(false);
@@ -179,8 +181,8 @@
 		private Label username;
 		private PictureBox pictureBox1;
 		private TableLayoutPanel tableLayoutPanel1;
-		private RichTextBox richTextBox1;
-		private PictureBox pictureBox2;
+		private RichTextBox messageText;
+		private PictureBox sendButton;
 		private FlowLayoutPanel flowLayoutPanel1;
 	}
 }

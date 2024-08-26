@@ -40,5 +40,31 @@ namespace barter.Services.Messages
 				return new Response<List<Chat>>(Status.Error, null, Exception.Message);
 			}
 		}
+
+		public async Task<Response<Chat>> ContinueChat(string chatId, Models.Message message)
+		{
+			string path = string.Format("{0}/continue/{1}", endpoint, chatId);
+
+			try
+			{
+				HttpResponseMessage response = await this.ApiService.GetClient().GetAsync(path);
+
+				if (response.IsSuccessStatusCode)
+				{
+					var data = await response.Content.ReadFromJsonAsync<Chat>();
+					return new Response<Chat>(Status.Success, data);
+				}
+				else
+				{
+					var errorMessage = await response.Content.ReadAsStringAsync();
+					return new Response<Chat>(Status.Error, null, errorMessage);
+				}
+
+			}
+			catch (Exception Exception)
+			{
+				return new Response<Chat>(Status.Error, null, Exception.Message);
+			}
+		}
 	}
 }

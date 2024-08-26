@@ -31,6 +31,12 @@
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
+        "Entry"
+        {
+        "MsmKey" = "8:_FB3892F37904470CABD2EC621CFB872F"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
     }
     "Configurations"
     {
@@ -168,6 +174,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FB3892F37904470CABD2EC621CFB872F"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\..\\Videos\\SQLite.Interop.dll"
+            "TargetName" = "8:SQLite.Interop.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_BBC788AF8FE84D4883AF9A3D95FA7886"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
         }
         "FileType"
         {
@@ -181,6 +207,17 @@
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Property" = "8:DesktopFolder"
+                "Folders"
+                {
+                }
+            }
+            "{1525181F-901A-416C-8A58-119130FE478E}:_71CE042A18434B9782347207E2948E1A"
+            {
+            "Name" = "8:#1914"
+            "AlwaysCreate" = "11:FALSE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Property" = "8:SystemFolder"
                 "Folders"
                 {
                 }
@@ -247,7 +284,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:barter-setup"
         "ProductCode" = "8:{875FA0D8-11B1-4049-A73E-FD6606CBC058}"
-        "PackageCode" = "8:{E38F13B0-386A-4C3C-A511-85219DAEEF1A}"
+        "PackageCode" = "8:{08466E16-DE5E-4040-A7AC-BADDD0902882}"
         "UpgradeCode" = "8:{4D7126D3-689D-4CAF-88E6-3C8076E2C0D0}"
         "AspNetVersion" = "8:"
         "RestartWWWService" = "11:FALSE"
