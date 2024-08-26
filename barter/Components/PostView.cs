@@ -21,7 +21,7 @@ namespace barter.Components
 
 		private void PostView_Load(object sender, EventArgs e)
 		{
-			this.usernameText.Text = Post.Author.Username;
+			this.usernameText.Text = Post.Author.Name;
 			this.publishDate.Text = Utils.Util.TimeAgo(Post.createdAt);
 
 			if (this.Post.Objects is not null)

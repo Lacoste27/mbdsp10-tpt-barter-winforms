@@ -32,11 +32,12 @@ namespace barter.Components
 
 				if (chats != null)
 				{
-					for (int i = 0; i < 10; i++)
+					/*for (int i = 0; i < 10; i++)
 					{
 						Chat chat = new Chat();
 						chat.Receiver = new();
 						chat.Receiver.Username = "User" + i;
+						chat.Receiver.Name = "Another User " + i;
 
 						var messageView = new MessageView(chat);
 						messageView.BackColor = Color.White;
@@ -44,16 +45,17 @@ namespace barter.Components
 
 						messageFlowLayout.Controls.Add(messageView);
 						messageFlowLayout.Refresh();
-					}
+					}*/
 
-					/*foreach (var chat in chats)
+					foreach (var chat in chats)
 					{
 						var messageView = new MessageView(chat);
 						messageView.BackColor = Color.White;
+						messageView.Click += message_Click;
 
 						messageFlowLayout.Controls.Add(messageView);
 						messageFlowLayout.Refresh();
-					*/
+					}
 				}
 			}
 			catch (Exception Exception)

@@ -200,6 +200,15 @@ namespace barter.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à https://tpt-barter-backend.onrender.com.
+        /// </summary>
+        internal static string remoteurl {
+            get {
+                return ResourceManager.GetString("remoteurl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap save {

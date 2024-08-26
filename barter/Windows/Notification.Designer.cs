@@ -87,6 +87,7 @@
 			Name = "Notification";
 			StartPosition = FormStartPosition.CenterScreen;
 			Text = "Notification";
+			FormClosed += Notification_FormClosed;
 			Load += Notification_Load;
 			panel1.ResumeLayout(false);
 			panel1.PerformLayout();

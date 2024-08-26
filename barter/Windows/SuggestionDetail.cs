@@ -31,33 +31,67 @@ namespace barter.Windows
 
 		private async void acceptButton_Click(object sender, EventArgs e)
 		{
-			string status = "ACCEPTED";
+			acceptButton.Enabled = false;
+			acceptButton.Text = "Loading...";
 
-			var update = await this.SuggestionDetailsModelView.UpdateSuggestion(this.Suggestion.Id, status);
-
-			if (update is not null)
+			try
 			{
-				MessageBox.Show("Suggestion updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-				Close();
+				string status = "ACCEPTED";
+
+				var update = await this.SuggestionDetailsModelView.UpdateSuggestion(this.Suggestion.Id, status);
+
+				if (update is not null)
+				{
+					MessageBox.Show("Suggestion updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					Close();
+				}
+			}
+			catch(Exception Exception)
+			{
+				acceptButton.Text = "Accept";
+				acceptButton.Enabled = true;
+			}
+			finally
+			{
+				acceptButton.Text = "Accept";
+				acceptButton.Enabled = true;
 			}
 		}
 
 		private async void declinedButton_Click(object sender, EventArgs e)
 		{
-			string status = "DECLINED";
+			declinedButton.Enabled = false;
+			declinedButton.Text = "Loading...";
 
-			var update = await this.SuggestionDetailsModelView.UpdateSuggestion(this.Suggestion.Id, status);
-
-			if (update is not null)
+			try
 			{
-				MessageBox.Show("Suggestion updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-				Close();
+				string status = "DECLINED";
+
+				var update = await this.SuggestionDetailsModelView.UpdateSuggestion(this.Suggestion.Id, status);
+
+				if (update is not null)
+				{
+					MessageBox.Show("Suggestion updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					Close();
+				}
 			}
+			catch (Exception Exception)
+			{
+				declinedButton.Text = "Accept";
+				declinedButton.Enabled = true;
+			}
+			finally
+			{
+				acceptButton.Text = "Accept";
+				declinedButton.Enabled = true;
+			}
+
+			
 		}
 
 		private void SuggestionDetail_Load(object sender, EventArgs e)
 		{
-			this.username.Text = this.Suggestion.SuggestedBy.Username;
+			this.username.Text = this.Suggestion.SuggestedBy.Name;
 			this.description.Text = this.Suggestion.Post.description;
 			this.createdAt.Text = this.Suggestion.CreatedAt.ToShortDateString();
 

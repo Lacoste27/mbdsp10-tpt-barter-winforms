@@ -5,6 +5,7 @@ using GMap.NET;
 using System.Data;
 using GMap.NET.WindowsForms.Markers;
 using GMap.NET.WindowsForms;
+using barter.Responses;
 
 namespace barter.Windows
 {
@@ -56,33 +57,56 @@ namespace barter.Windows
 
 		private async void saveButton_Click(object sender, EventArgs e)
 		{
-			int authodId = TokenStorage.GetUserId();
-			String description = descriptionText.Text;
-			List<int> objectIds = new List<int>();
+			saveButton.Enabled = false;
+			saveButton.Text = "Loading...";
 
-			string Adress = "Madagascar";
-			double Latittude = this.Location.Position.Lat;
-			double Longitude = this.Location.Position.Lng;
-
-			foreach (var item in objectCheckList.CheckedItems)
+			try
 			{
-				dynamic data = item;
-				Models.Object _objects = this.addPostModelView.UserObjects.Where(post => post.Id == data.Value).FirstOrDefault();
+				int authodId = TokenStorage.GetUserId();
+				String description = descriptionText.Text;
+				List<int> objectIds = new List<int>();
 
-				if (_objects is not null)
+				string Adress = "Madagascar";
+				double Latittude = this.Location.Position.Lat;
+				double Longitude = this.Location.Position.Lng;
+
+				foreach (var item in objectCheckList.CheckedItems)
 				{
-					objectIds.Add(data.Value);
+					dynamic data = item;
+					Models.Object _objects = this.addPostModelView.UserObjects.Where(post => post.Id == data.Value).FirstOrDefault();
+
+					if (_objects is not null)
+					{
+						objectIds.Add(data.Value);
+					}
+				}
+
+
+				var _object = await addPostModelView.AddPost(authodId, description, Latittude, Longitude, Adress, objectIds);
+
+				if (_object is not null)
+				{
+					MessageBox.Show("Post added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					Close();
+				} else
+				{
+					saveButton.Text = "Save";
+					saveButton.Enabled = true;
 				}
 			}
-
-
-			var _object = await addPostModelView.AddPost(authodId, description, Latittude, Longitude, Adress, objectIds);
-
-			if (_object is not null)
+			catch(Exception Exception)
 			{
-				MessageBox.Show("Post added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-				Close();
+				MessageBox.Show(Exception.Message, "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+				saveButton.Text = "Save";
+				saveButton.Enabled = true;
 			}
+			finally
+			{
+				saveButton.Text = "Save";
+				saveButton.Enabled = true;
+			}
+
 		}
 
 		private async void AddPost_Load(object sender, EventArgs e)

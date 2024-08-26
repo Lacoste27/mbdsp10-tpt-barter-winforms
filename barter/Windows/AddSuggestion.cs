@@ -107,26 +107,50 @@ namespace barter.Windows
 
 		private async void saveButton_Click(object sender, EventArgs e)
 		{
-			List<int> suggestedObjectIds = new List<int>();
-			int suggestedById = TokenStorage.GetUserId();
-
-			foreach (var item in userObject.CheckedItems)
+			saveButton.Enabled = false;
+			saveButton.Text = "Loading...";
+			try
 			{
-				dynamic data = item;
+				List<int> suggestedObjectIds = new List<int>();
+				int suggestedById = TokenStorage.GetUserId();
 
-				if (data is not null)
+				foreach (var item in userObject.CheckedItems)
 				{
-					suggestedObjectIds.Add(data.Value);
+					dynamic data = item;
+
+					if (data is not null)
+					{
+						suggestedObjectIds.Add(data.Value);
+					}
+				}
+
+				var suggestion = await this.AddSuggestionModelView.SendSuggestion(this.Post, suggestedById, suggestedObjectIds);
+
+				if (suggestion is not null)
+				{
+					MessageBox.Show("Suggestion added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					Close();
+				}
+				else
+				{
+					saveButton.Text = "Save";
+					saveButton.Enabled = true;
 				}
 			}
-
-			var suggestion = await this.AddSuggestionModelView.SendSuggestion(this.Post, suggestedById, suggestedObjectIds);
-
-			if (suggestion is not null)
+			catch(Exception Exception)
 			{
-				MessageBox.Show("Suggestion added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-				Close();
+				saveButton.Text = "Save";
+				saveButton.Enabled = true;
+
+				MessageBox.Show(Exception.Message, "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
+			finally
+			{
+				saveButton.Text = "Save";
+				saveButton.Enabled = true;
+			}
+
+			
 		}
 	}
 }

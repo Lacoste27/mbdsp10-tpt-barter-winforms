@@ -49,7 +49,7 @@ namespace barter.Services.Posts
 		public async Task<Response<ListResponse<Post>>> GetUserPost(int userId, int page = 1, int limit = 10)
 		{
 			// string path = string.Format("{0}/user/{1}", endpoint, userId);
-			string path = $"{endpoint}/explore/{userId}?page={page}&limit={limit}";
+			string path = $"{endpoint}/user/{userId}?page={page}&limit={limit}";
 
 			try
 			{

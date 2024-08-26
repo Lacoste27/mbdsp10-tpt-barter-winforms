@@ -37,7 +37,7 @@ namespace barter.Components
 
 		private void SuggestionView_Load(object sender, EventArgs e)
 		{
-			this.username.Text = this.Suggestion.SuggestedBy.Username;
+			this.username.Text = this.Suggestion.SuggestedBy.Name;
 
 			if(Suggestion.Status == "ACCEPTED")
 			{

@@ -2,14 +2,19 @@
 using barter.Responses;
 using barter.Services.Notifications;
 using barter.Utils;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace barter.ModelsView
 {
-	public class NotificationModelView
+	public class MainModelView
 	{
 		private INotificationService NotificationService { get; set; }
 
-		public NotificationModelView()
+		public MainModelView()
 		{
 			NotificationService = Service.GetService<INotificationService>();
 		}
@@ -30,12 +35,20 @@ namespace barter.ModelsView
 			}
 		}
 
-
-		public async Task MarkNotificationRead(List<Notification> notifications)
+		public async Task<Boolean> HasNewNotification()
 		{
-			foreach (var notification in notifications)
+			int userId = TokenStorage.GetUserId();
+			var response = await NotificationService.GetUserNotification(userId);
+
+			if (response.Status == Status.Success)
 			{
-				await NotificationService.MarkNotificationAsRead(notification);
+				List<Notification> notifications = response.Data.OrderBy(notification => notification.CreatedAt).ThenByDescending(notification => notification.IsRead).ToList();
+				return notifications.Any(notification => notification.IsRead == false);
+			}
+			else
+			{
+				MessageBox.Show(response.Message, "Message d'erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return false;
 			}
 		}
 	}

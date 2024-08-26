@@ -20,7 +20,7 @@ namespace barter.Components
 
 		private void MessageView_Load(object sender, EventArgs e)
 		{
-			this.username.Text = this.Message.Receiver.Username;
+			this.username.Text = this.Message.Receiver.Name;
 		}
 	}
 }

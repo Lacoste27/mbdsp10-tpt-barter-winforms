@@ -1,10 +1,12 @@
 ﻿using barter.Components;
+using barter.ModelsView;
 
 namespace barter.Windows
 {
 	public partial class Main : Form
 	{
 		private Suggestions suggestion { get; set; }
+		private MainModelView MainModelView { get; set; } = new MainModelView();
 
 		public Main()
 		{
@@ -72,7 +74,10 @@ namespace barter.Windows
 			this.messageButton.FlatStyle = FlatStyle.Flat;
 
 			Notification notification = new Notification();
-			notification.ShowDialog();
+			if(notification.ShowDialog() == DialogResult.OK)
+			{
+				this.notificationButton.BackColor = Color.White;
+			}
 		}
 
 		private void home1_Load(object sender, EventArgs e)
@@ -101,7 +106,7 @@ namespace barter.Windows
 			this.suggestion.BringToFront();
 		}
 
-		private void Main_Load(object sender, EventArgs e)
+		private async void Main_Load(object sender, EventArgs e)
 		{
 			if (this.home1 is null)
 			{
@@ -111,6 +116,13 @@ namespace barter.Windows
 
 			this.panel2.Controls.Add(this.home1);
 			this.home1.BringToFront();
+
+			var hasNotification = await this.MainModelView.HasNewNotification();
+
+			if(hasNotification)
+			{
+				this.notificationButton.BackColor = Color.FromArgb(39, 194, 64);
+			}
 		}
 	}
 }
